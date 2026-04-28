@@ -407,56 +407,123 @@ h1 em,h2 em,h3 em{font-style:italic;font-weight:500;color:var(--accent)}
 .story-initials::before{left:-60px;background:linear-gradient(to right, transparent, var(--gold))}
 .story-initials::after{right:-60px;background:linear-gradient(to left, transparent, var(--gold))}
 
-/* ============ UBICACIONES ============ */
+/* ============ UBICACIONES — VINTAGE ART-DÉCO ============ */
 .locs h2{text-align:center;font-size:clamp(38px,5.5vw,64px);margin-bottom:20px}
-.locs-sub{text-align:center;font-family:var(--italiana);font-size:18px;letter-spacing:.3em;text-transform:uppercase;color:var(--ink-soft);padding-left:.3em;margin-bottom:80px}
-.locs-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:48px;max-width:1100px;margin:0 auto}
+.locs-sub{text-align:center;font-family:var(--italiana);font-size:18px;letter-spacing:.3em;text-transform:uppercase;color:var(--ink-soft);padding-left:.3em;margin-bottom:72px}
+.locs-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:56px;max-width:1180px;margin:0 auto}
+
 .loc-card{
-  background:var(--paper);padding:56px 40px 48px;
-  border:1px solid var(--hair-gold);
-  border-radius:2px;text-align:center;position:relative;
+  position:relative;background:linear-gradient(180deg,#FFF7EE 0%,#FBEDE1 100%);
+  padding:34px 30px 36px;text-align:center;border-radius:2px;
   box-shadow:
-    0 1px 2px rgba(30,47,78,.06),
-    0 12px 32px -10px rgba(30,47,78,.18),
-    0 40px 90px -40px rgba(30,47,78,.3);
-  transition:transform .7s cubic-bezier(.2,.7,.2,1),box-shadow .7s;
-  transform-style:preserve-3d;will-change:transform;
+    0 1px 2px rgba(90,47,56,.06),
+    0 14px 36px -10px rgba(90,47,56,.22),
+    0 50px 110px -40px rgba(90,47,56,.32);
+  isolation:isolate;
 }
+/* Marco doble exterior */
 .loc-card::before{
-  content:"";position:absolute;inset:8px;
-  border:1px solid var(--hair-gold);pointer-events:none;opacity:.6;
+  content:"";position:absolute;inset:10px;
+  border:1px solid color-mix(in srgb,var(--gold) 52%,transparent);
+  pointer-events:none;
 }
-.washi{
-  position:absolute;top:-14px;width:82px;height:24px;
-  background:linear-gradient(135deg, var(--rose-soft) 0%, var(--rose) 50%, var(--rose-soft) 100%);
-  opacity:.72;box-shadow:0 2px 8px rgba(0,0,0,.12);
+/* Marco interior fino */
+.loc-card::after{
+  content:"";position:absolute;inset:16px;
+  border:1px solid color-mix(in srgb,var(--gold) 22%,transparent);
+  pointer-events:none;
 }
-.washi--l{left:22px;transform:rotate(-6deg)}
-.washi--r{right:22px;transform:rotate(5deg);background:linear-gradient(135deg, var(--gold-soft) 0%, var(--gold) 50%, var(--gold-soft) 100%)}
-.washi::before,.washi::after{
-  content:"";position:absolute;top:0;width:6px;height:100%;background:inherit;
-}
-.washi::before{left:-3px;clip-path:polygon(100% 0, 100% 100%, 0 50%, 40% 0)}
-.washi::after{right:-3px;clip-path:polygon(0 0, 100% 50%, 0 100%, 60% 0)}
+/* Esquinas art-déco florales */
+.loc-corner{position:absolute;width:46px;height:46px;color:var(--gold);opacity:.85;pointer-events:none;z-index:2}
+.loc-corner--tl{top:6px;left:6px}
+.loc-corner--tr{top:6px;right:6px;transform:scaleX(-1)}
+.loc-corner--bl{bottom:6px;left:6px;transform:scaleY(-1)}
+.loc-corner--br{bottom:6px;right:6px;transform:scale(-1,-1)}
 
-.rosette{position:absolute;width:44px;height:44px;opacity:.55;pointer-events:none}
-.rosette--tl{top:14px;left:14px}
-.rosette--br{bottom:14px;right:14px;transform:rotate(180deg)}
+/* Cresta superior con número romano */
+.loc-crest{
+  position:absolute;top:-22px;left:50%;transform:translateX(-50%);
+  width:64px;height:44px;
+  background:var(--paper);
+  border:1px solid color-mix(in srgb,var(--gold) 60%,transparent);
+  border-radius:2px;display:flex;align-items:center;justify-content:center;
+  font-family:var(--display);font-style:italic;font-size:20px;color:var(--gold-deep);
+  z-index:3;
+  box-shadow:0 4px 14px rgba(90,47,56,.2);
+}
+.loc-crest::before,.loc-crest::after{
+  content:"";position:absolute;top:50%;width:42px;height:1px;
+  background:linear-gradient(to right,transparent,var(--gold-deep) 70%);
+}
+.loc-crest::before{right:calc(100% + 8px)}
+.loc-crest::after{left:calc(100% + 8px);background:linear-gradient(to left,transparent,var(--gold-deep) 70%)}
 
-.loc-type{font-family:var(--sans);font-size:10px;letter-spacing:.55em;text-transform:uppercase;color:var(--gold-deep);padding-left:.55em;margin-bottom:28px;font-weight:500}
-.loc-name{font-family:var(--display);font-size:26px;color:var(--accent-deep);margin-bottom:20px;line-height:1.25;font-weight:400}
-.loc-time{font-family:var(--display);font-style:italic;font-size:22px;color:var(--gold);margin-bottom:24px;font-variant-numeric:tabular-nums}
-.loc-addr{font-family:var(--serif);font-size:15px;color:var(--ink-soft);line-height:1.7;margin-bottom:32px;font-weight:400}
+/* Encabezado del card */
+.loc-type{
+  font-family:var(--sans);font-size:10px;letter-spacing:.55em;text-transform:uppercase;
+  color:var(--gold-deep);padding-left:.55em;margin:24px 0 18px;font-weight:500;
+}
+.loc-name{
+  font-family:var(--display);font-style:italic;font-weight:400;
+  font-size:clamp(22px,2.6vw,28px);color:var(--accent-deep);
+  margin-bottom:6px;line-height:1.22;
+}
+.loc-divider{
+  display:flex;align-items:center;justify-content:center;gap:10px;margin:16px auto 14px;width:80%;
+}
+.loc-divider::before,.loc-divider::after{
+  content:"";flex:1;height:1px;
+  background:linear-gradient(to right,transparent,var(--gold) 40%,var(--gold) 60%,transparent);
+}
+.loc-divider svg{width:18px;height:18px;color:var(--gold);flex-shrink:0}
+
+/* Placa de hora ornamentada */
+.loc-time{
+  display:inline-block;font-family:var(--display);font-style:italic;
+  font-size:clamp(28px,3.5vw,36px);color:var(--gold-deep);
+  font-variant-numeric:tabular-nums;
+  padding:8px 22px 6px;margin:8px 0 4px;
+  border-top:1px solid color-mix(in srgb,var(--gold) 50%,transparent);
+  border-bottom:1px solid color-mix(in srgb,var(--gold) 50%,transparent);
+}
+.loc-time small{font-family:var(--italiana);font-size:.4em;letter-spacing:.4em;color:var(--gold-deep);opacity:.75;margin-left:6px;font-style:normal}
+.loc-addr{
+  font-family:var(--serif);font-size:14px;color:var(--ink-soft);
+  line-height:1.75;margin:18px auto 22px;font-weight:400;font-style:italic;max-width:84%;
+}
+
+/* Mapa embed con marco vintage */
+.loc-map{
+  position:relative;margin:14px auto 24px;width:100%;aspect-ratio:4/3;
+  border:1px solid color-mix(in srgb,var(--gold) 55%,transparent);
+  background:#3a2226;overflow:hidden;
+  box-shadow:inset 0 0 0 4px var(--paper),inset 0 0 0 5px color-mix(in srgb,var(--gold) 35%,transparent);
+}
+.loc-map iframe{
+  position:absolute;inset:8px;width:calc(100% - 16px);height:calc(100% - 16px);
+  border:0;display:block;filter:saturate(.85) sepia(.18);
+}
+.loc-map-caption{
+  position:absolute;bottom:14px;left:50%;transform:translateX(-50%);
+  background:var(--paper);padding:5px 14px;
+  font-family:var(--italiana);font-size:10px;letter-spacing:.45em;text-transform:uppercase;
+  color:var(--gold-deep);border:1px solid color-mix(in srgb,var(--gold) 45%,transparent);
+  pointer-events:none;
+  white-space:nowrap;
+}
+
 .loc-btn{
-  display:inline-block;padding:15px 34px;
+  display:inline-flex;align-items:center;gap:10px;padding:14px 30px;
   border:1px solid var(--accent-deep);background:transparent;
   font-family:var(--sans);font-size:11px;font-weight:500;
   letter-spacing:.4em;text-transform:uppercase;
   color:var(--accent-deep);text-decoration:none;
-  padding-left:calc(34px + .4em);
+  padding-left:calc(30px + .4em);
   transition:all .5s cubic-bezier(.2,.7,.2,1);
   cursor:pointer;min-height:44px;position:relative;overflow:hidden;
+  z-index:1;
 }
+.loc-btn svg{width:14px;height:14px;flex-shrink:0}
 .loc-btn::before{
   content:"";position:absolute;inset:0;background:var(--accent-deep);
   transform:translateY(101%);
@@ -464,6 +531,11 @@ h1 em,h2 em,h3 em{font-style:italic;font-weight:500;color:var(--accent)}
 }
 .loc-btn:hover{color:var(--paper)}
 .loc-btn:hover::before{transform:translateY(0)}
+
+@media (max-width:560px){
+  .locs-grid{gap:64px}
+  .loc-card{padding:30px 22px 32px}
+}
 
 /* ============ COUNTDOWN ============ */
 .countdown{text-align:center;padding:min(14vh,120px) 0}
@@ -496,16 +568,28 @@ h1 em,h2 em,h3 em{font-style:italic;font-weight:500;color:var(--accent)}
 }
 .fam-card{
   position:relative;background:#FFF6EE;
-  border:1px solid var(--hair-gold);border-radius:6px;
-  padding:clamp(28px,3vw,40px) clamp(22px,2.6vw,32px);
+  border:1px solid color-mix(in srgb,var(--gold) 45%,transparent);border-radius:2px;
+  padding:clamp(32px,3.4vw,44px) clamp(22px,2.6vw,32px);
   text-align:center;
   box-shadow:0 4px 20px rgba(90,47,56,.08),0 1px 0 rgba(255,255,255,.6) inset;
 }
 .fam-card::before{
-  content:"";position:absolute;top:14px;left:14px;right:14px;bottom:14px;
-  border:1px solid color-mix(in srgb,var(--gold) 30%,transparent);
-  border-radius:3px;pointer-events:none;
+  content:"";position:absolute;inset:8px;
+  border:1px solid color-mix(in srgb,var(--gold) 25%,transparent);
+  pointer-events:none;
 }
+.fam-card::after{
+  content:"";position:absolute;top:50%;left:14px;right:14px;height:1px;
+  transform:translateY(-50%);
+  background:linear-gradient(to right,transparent,color-mix(in srgb,var(--gold) 40%,transparent) 50%,transparent);
+  pointer-events:none;opacity:.55;
+  display:none;
+}
+.fam-corner{position:absolute;width:30px;height:30px;color:var(--gold);opacity:.9;pointer-events:none;z-index:2}
+.fam-corner--tl{top:4px;left:4px}
+.fam-corner--tr{top:4px;right:4px;transform:scaleX(-1)}
+.fam-corner--bl{bottom:4px;left:4px;transform:scaleY(-1)}
+.fam-corner--br{bottom:4px;right:4px;transform:scale(-1,-1)}
 .fam-card--padrino{background:linear-gradient(180deg,#FFF6EE 0%,#FBEDE3 100%)}
 .fam-role{
   font-family:var(--sans);font-weight:500;
@@ -840,141 +924,132 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
   .hero-content{padding:40px 20px}
   .cd-block{min-width:82px;padding:22px 16px}
 }
-/* ============ ITINERARIO ============ */
-.itinerary{text-align:center;padding:min(16vh,150px) 0;contain:none;overflow:visible}
-.itinerary h2{font-size:clamp(32px,4.5vw,52px);margin-bottom:12px}
-.itinerary-sub{font-family:var(--script);color:var(--gold);font-size:30px;margin-bottom:72px;line-height:1}
-.itin-wrap{
-  position:relative;
-  max-width:780px;
-  margin:0 auto;
-  padding:20px clamp(16px,4vw,40px);
+/* ============ ITINERARIO — PROGRAMA DE LA VELADA (VINTAGE) ============ */
+.itinerary{text-align:center;padding:min(16vh,150px) 0;contain:none;overflow:visible;position:relative}
+.itinerary h2{font-size:clamp(34px,4.8vw,56px);margin-bottom:14px}
+.itinerary-sub{font-family:var(--script);color:var(--gold);font-size:34px;margin-bottom:18px;line-height:1}
+.itin-intro{
+  font-family:var(--italiana);font-size:13px;letter-spacing:.45em;text-transform:uppercase;
+  color:var(--ink-soft);padding-left:.45em;margin-bottom:64px;
 }
-.itin-track{
-  position:absolute;
-  left:50%;top:0;bottom:0;
-  width:0;
-  overflow:visible;
-  z-index:1;
-  pointer-events:none;
-}
-/* Rayo de luz — capa de resplandor difuminado (Gaussian, no box-shadow) */
-.itin-track-glow{
-  position:absolute;
-  left:-22px;width:48px;
-  top:0;height:100%;
-  transform:scaleY(0);
-  transform-origin:top center;
-  background:linear-gradient(to bottom,
-    transparent 0%,
-    color-mix(in srgb, var(--gold) 55%, transparent) 12%,
-    var(--gold) 40%,
-    var(--gold) 60%,
-    color-mix(in srgb, var(--gold) 55%, transparent) 88%,
-    transparent 100%
-  );
-  filter:blur(16px);
-  opacity:.62;
-  will-change:transform;
-  pointer-events:none;
-}
-/* Rayo de luz — núcleo brillante delgado */
-.itin-track-fill{
-  position:absolute;
-  left:-1px;width:2px;
-  top:0;height:100%;
-  transform:scaleY(0);
-  transform-origin:top center;
-  background:linear-gradient(to bottom,
-    transparent 0%,
-    var(--gold-soft) 6%,
-    #fff8e8 38%,
-    #fff 50%,
-    #fff8e8 62%,
-    var(--gold-soft) 94%,
-    transparent 100%
-  );
-  border-radius:1px;
-  will-change:transform;
-}
-.itin-events{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:clamp(52px,8vh,96px);position:relative;z-index:2}
-.itin-event{
-  position:relative;
-  display:grid;
-  grid-template-columns:1fr 40px 1fr;
-  align-items:center;
-  gap:18px;
-}
-.itin-event .itin-spacer{display:block}
-.itin-event--right .itin-card{grid-column:3;text-align:left}
-.itin-event--right .itin-spacer{grid-column:1}
-.itin-event--left .itin-card{grid-column:1;text-align:right}
-.itin-event--left .itin-spacer{grid-column:3}
-.itin-marker{
-  grid-column:2;
-  width:10px;height:10px;
-  margin:0 auto;
-  border-radius:50%;
-  background:color-mix(in srgb, var(--accent) 20%, var(--paper));
-  border:1px solid color-mix(in srgb, var(--accent) 30%, transparent);
-  position:relative;z-index:3;display:block;
-  opacity:.4;
-  transition:opacity .45s ease, background .45s ease, border-color .45s ease;
-}
-.itin-event.is-active .itin-marker{
-  opacity:1;
-  background:var(--gold);
-  border-color:var(--gold-deep);
-}
-.itin-card{
-  padding:22px 26px;
-  background:color-mix(in srgb, var(--surface) 72%, transparent);
-  border:1px solid color-mix(in srgb, var(--accent) 18%, transparent);
-  backdrop-filter:blur(6px);
-  -webkit-backdrop-filter:blur(6px);
-  border-radius:12px;
-  transition:border-color .5s ease, background .5s ease, box-shadow .5s ease, transform .5s ease;
-}
-.itin-time{
-  font-family:var(--display);
-  font-style:italic;
-  font-size:clamp(24px,3.4vw,32px);
-  color:var(--accent);
-  letter-spacing:.02em;
-  margin-bottom:4px;
-  transition:color .5s ease;
-}
-.itin-name{
-  font-family:var(--sans);
-  font-size:13px;
-  text-transform:uppercase;
-  letter-spacing:.24em;
-  color:var(--ink-soft);
-  font-weight:500;
-}
-.itin-desc{
-  margin-top:10px;
-  font-size:14.5px;
-  color:var(--ink-soft);
-  line-height:1.55;
-}
-.itin-event.is-active .itin-card{
-  border-color:color-mix(in srgb, var(--gold) 55%, transparent);
-  background:color-mix(in srgb, var(--surface) 88%, transparent);
+
+/* Tarjetón programa con borde art-déco */
+.program-card{
+  position:relative;max-width:760px;margin:0 auto;
+  background:linear-gradient(180deg,#FFF7EE 0%,#FBEDDF 100%);
+  padding:clamp(40px,5vw,72px) clamp(28px,4vw,56px) clamp(48px,6vw,80px);
+  text-align:center;
   box-shadow:
-    0 14px 44px -18px color-mix(in srgb, var(--accent) 55%, transparent),
-    0 0 0 1px color-mix(in srgb, var(--gold) 22%, transparent);
+    0 1px 2px rgba(90,47,56,.06),
+    0 16px 48px -12px rgba(90,47,56,.24),
+    0 60px 130px -50px rgba(90,47,56,.4);
 }
-.itin-event.is-active .itin-time{color:var(--gold-deep)}
-@media (max-width:680px){
-  .itin-wrap{padding-left:48px;padding-right:14px}
-  .itin-track{left:24px;margin-left:0}
-  .itin-events{gap:46px}
-  .itin-event{grid-template-columns:14px 1fr;gap:22px}
-  .itin-marker{grid-column:1}
-  .itin-card{grid-column:2 !important;text-align:left !important}
-  .itin-spacer{display:none}
-  .itin-time{font-size:22px}
+/* Doble marco art-déco */
+.program-card::before{
+  content:"";position:absolute;inset:14px;
+  border:1px solid color-mix(in srgb,var(--gold) 55%,transparent);
+  pointer-events:none;
+}
+.program-card::after{
+  content:"";position:absolute;inset:22px;
+  border:1px solid color-mix(in srgb,var(--gold) 22%,transparent);
+  pointer-events:none;
+}
+/* Esquinas decorativas */
+.program-corner{position:absolute;width:62px;height:62px;color:var(--gold);opacity:.9;pointer-events:none;z-index:2}
+.program-corner--tl{top:8px;left:8px}
+.program-corner--tr{top:8px;right:8px;transform:scaleX(-1)}
+.program-corner--bl{bottom:8px;left:8px;transform:scaleY(-1)}
+.program-corner--br{bottom:8px;right:8px;transform:scale(-1,-1)}
+
+.program-header{
+  position:relative;margin-bottom:14px;
+}
+.program-eyebrow{
+  font-family:var(--italiana);font-size:11px;letter-spacing:.6em;text-transform:uppercase;
+  color:var(--gold-deep);padding-left:.6em;margin-bottom:14px;
+}
+.program-title{
+  font-family:var(--display);font-style:italic;font-weight:400;
+  font-size:clamp(28px,3.6vw,38px);color:var(--accent-deep);line-height:1.2;
+}
+.program-flourish{display:flex;align-items:center;justify-content:center;gap:14px;margin:18px auto 28px;width:min(420px,80%)}
+.program-flourish::before,.program-flourish::after{
+  content:"";flex:1;height:1px;
+  background:linear-gradient(to right,transparent,var(--gold) 40%,var(--gold) 60%,transparent);
+}
+.program-flourish svg{width:34px;height:34px;color:var(--gold);flex-shrink:0}
+
+.program-list{
+  list-style:none;padding:0;margin:0;text-align:center;position:relative;z-index:1;
+}
+.program-row{
+  position:relative;padding:22px 0 24px;
+  display:grid;grid-template-columns:auto 1fr;gap:clamp(20px,3vw,40px);
+  align-items:start;text-align:left;
+}
+.program-row + .program-row::before{
+  content:"";position:absolute;top:0;left:8%;right:8%;height:14px;
+  background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 14' fill='none'><path d='M10 7 Q40 1 70 7 Q100 13 130 7 Q160 1 190 7' stroke='%23C9A456' stroke-width='1' opacity='.55' fill='none'/><circle cx='100' cy='7' r='2' fill='%23C9A456' opacity='.85'/><path d='M96 4 Q100 0 104 4' stroke='%23C9A456' stroke-width='.8' opacity='.6' fill='none'/><path d='M96 10 Q100 14 104 10' stroke='%23C9A456' stroke-width='.8' opacity='.6' fill='none'/></svg>") center/auto 100% no-repeat;
+}
+
+/* Medallón circular con la hora */
+.program-time{
+  position:relative;width:96px;height:96px;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--display);font-style:italic;font-size:24px;color:var(--gold-deep);
+  font-variant-numeric:tabular-nums;line-height:1;
+  z-index:1;
+}
+.program-time::before{
+  content:"";position:absolute;inset:0;border-radius:50%;
+  border:1px solid color-mix(in srgb,var(--gold) 55%,transparent);
+  background:radial-gradient(circle at 30% 30%,#FFFBF2 0%,#FBEDD9 80%);
+}
+.program-time::after{
+  content:"";position:absolute;inset:6px;border-radius:50%;
+  border:1px dashed color-mix(in srgb,var(--gold) 60%,transparent);
+}
+.program-time span{position:relative;z-index:1;text-shadow:0 1px 0 rgba(255,255,255,.6)}
+.program-time small{font-family:var(--italiana);font-style:normal;font-size:9px;letter-spacing:.3em;color:var(--gold-deep);opacity:.7;display:block;margin-top:2px}
+
+.program-detail{padding-top:8px}
+.program-roman{
+  font-family:var(--display);font-style:italic;font-size:14px;color:var(--gold);
+  letter-spacing:.1em;margin-bottom:6px;font-weight:500;
+}
+.program-name{
+  font-family:var(--display);font-style:italic;font-weight:400;
+  font-size:clamp(22px,2.6vw,28px);color:var(--accent-deep);line-height:1.18;margin-bottom:8px;
+}
+.program-desc{
+  font-family:var(--serif);font-size:14.5px;line-height:1.7;color:var(--ink-soft);
+  font-weight:400;font-style:italic;
+}
+
+.program-footer{
+  position:relative;margin-top:42px;padding-top:24px;
+}
+.program-footer::before{
+  content:"";position:absolute;top:0;left:25%;right:25%;height:1px;
+  background:linear-gradient(to right,transparent,var(--gold) 40%,var(--gold) 60%,transparent);
+}
+.program-monogram{
+  font-family:var(--script);font-size:54px;color:var(--gold);line-height:.9;
+  margin-top:8px;
+}
+.program-monogram .amp{font-size:.6em;color:var(--gold-deep);padding:0 .04em}
+.program-tagline{
+  font-family:var(--italiana);font-size:11px;letter-spacing:.55em;text-transform:uppercase;
+  color:var(--ink-soft);padding-left:.55em;margin-top:14px;opacity:.75;
+}
+
+@media (max-width:600px){
+  .program-card{padding:36px 18px 44px}
+  .program-corner{width:46px;height:46px}
+  .program-row{grid-template-columns:auto 1fr;gap:16px;padding:18px 0 20px}
+  .program-time{width:78px;height:78px;font-size:19px}
+  .program-detail{padding-top:6px}
 }
 
 @media (prefers-reduced-motion:reduce){
@@ -1121,34 +1196,8 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
     <div class="hero-scroll">Descubre</div>
   </section>
 
-  <!-- DIVIDER: bg → surface -->
-  <div class="seam" style="--from:transparent;--to:var(--surface)" aria-hidden="true"></div>
-
-  <!-- VERSO -->
-  <section class="section-surface">
-    <div class="container">
-      <div class="verse-wrap">
-        <svg class="verse-ornament" viewBox="0 0 360 80" fill="none" aria-hidden="true">
-          <g stroke="var(--gold)" stroke-width=".9" opacity=".75" fill="none">
-            <path d="M30 40 Q70 18 110 40 Q140 58 170 40"/>
-            <path d="M190 40 Q220 58 250 40 Q290 18 330 40"/>
-            <circle cx="180" cy="40" r="4" stroke="var(--gold)"/>
-            <circle cx="180" cy="40" r="1.5" fill="var(--gold)" stroke="none"/>
-            <path d="M175 28 Q180 20 185 28" opacity=".7"/>
-            <path d="M175 52 Q180 60 185 52" opacity=".7"/>
-            <path d="M10 40 L30 40" opacity=".5"/>
-            <path d="M330 40 L350 40" opacity=".5"/>
-          </g>
-        </svg>
-        <span class="verse-quote">&ldquo;</span>
-        <p class="verse-text">Después de seis años de amor, aprendizajes y momentos inolvidables, hemos decidido <em>— por siempre —</em> dar el paso más importante de nuestras vidas.</p>
-        <div class="verse-sig">Jesús &amp; Alejandra</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- DIVIDER: surface → bg-image backdrop (use surface→accent-deep for drama) -->
-  <div class="seam" style="--from:var(--surface);--to:#5A2F38" aria-hidden="true"></div>
+  <!-- DIVIDER: bg → date-hero -->
+  <div class="seam" style="--from:transparent;--to:#5A2F38" aria-hidden="true"></div>
 
   <!-- FECHA HERO -->
   <section class="date-hero">
@@ -1210,22 +1259,42 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
       </div>
       <div class="family-grid">
         <article class="fam-card">
+          <svg class="fam-corner fam-corner--tl" viewBox="0 0 30 30" fill="none"><g stroke="currentColor" stroke-width="1" fill="none"><path d="M2 12 L2 2 L12 2"/><path d="M5 15 L5 5 L15 5" opacity=".55"/><circle cx="9" cy="9" r="1.5" fill="currentColor"/></g></svg>
+          <svg class="fam-corner fam-corner--tr" viewBox="0 0 30 30" fill="none"><g stroke="currentColor" stroke-width="1" fill="none"><path d="M2 12 L2 2 L12 2"/><path d="M5 15 L5 5 L15 5" opacity=".55"/><circle cx="9" cy="9" r="1.5" fill="currentColor"/></g></svg>
+          <svg class="fam-corner fam-corner--bl" viewBox="0 0 30 30" fill="none"><g stroke="currentColor" stroke-width="1" fill="none"><path d="M2 12 L2 2 L12 2"/><path d="M5 15 L5 5 L15 5" opacity=".55"/><circle cx="9" cy="9" r="1.5" fill="currentColor"/></g></svg>
+          <svg class="fam-corner fam-corner--br" viewBox="0 0 30 30" fill="none"><g stroke="currentColor" stroke-width="1" fill="none"><path d="M2 12 L2 2 L12 2"/><path d="M5 15 L5 5 L15 5" opacity=".55"/><circle cx="9" cy="9" r="1.5" fill="currentColor"/></g></svg>
           <div class="fam-role">Padres del Novio</div>
           <div class="fam-names">Jesús Vázquez Quintana <span class="cross">✝</span><br><span class="amp-gold">&amp;</span><br>María Leticia Castañón Martínez</div>
         </article>
         <article class="fam-card">
+          <svg class="fam-corner fam-corner--tl" viewBox="0 0 30 30" fill="none"><g stroke="currentColor" stroke-width="1" fill="none"><path d="M2 12 L2 2 L12 2"/><path d="M5 15 L5 5 L15 5" opacity=".55"/><circle cx="9" cy="9" r="1.5" fill="currentColor"/></g></svg>
+          <svg class="fam-corner fam-corner--tr" viewBox="0 0 30 30" fill="none"><g stroke="currentColor" stroke-width="1" fill="none"><path d="M2 12 L2 2 L12 2"/><path d="M5 15 L5 5 L15 5" opacity=".55"/><circle cx="9" cy="9" r="1.5" fill="currentColor"/></g></svg>
+          <svg class="fam-corner fam-corner--bl" viewBox="0 0 30 30" fill="none"><g stroke="currentColor" stroke-width="1" fill="none"><path d="M2 12 L2 2 L12 2"/><path d="M5 15 L5 5 L15 5" opacity=".55"/><circle cx="9" cy="9" r="1.5" fill="currentColor"/></g></svg>
+          <svg class="fam-corner fam-corner--br" viewBox="0 0 30 30" fill="none"><g stroke="currentColor" stroke-width="1" fill="none"><path d="M2 12 L2 2 L12 2"/><path d="M5 15 L5 5 L15 5" opacity=".55"/><circle cx="9" cy="9" r="1.5" fill="currentColor"/></g></svg>
           <div class="fam-role">Padres de la Novia</div>
           <div class="fam-names">Víctor Manuel Najera Rede <span class="cross">✝</span><br><span class="amp-gold">&amp;</span><br>Josefa Ramos</div>
         </article>
         <article class="fam-card fam-card--padrino">
+          <svg class="fam-corner fam-corner--tl" viewBox="0 0 30 30" fill="none"><g stroke="currentColor" stroke-width="1" fill="none"><path d="M2 12 L2 2 L12 2"/><path d="M5 15 L5 5 L15 5" opacity=".55"/><circle cx="9" cy="9" r="1.5" fill="currentColor"/></g></svg>
+          <svg class="fam-corner fam-corner--tr" viewBox="0 0 30 30" fill="none"><g stroke="currentColor" stroke-width="1" fill="none"><path d="M2 12 L2 2 L12 2"/><path d="M5 15 L5 5 L15 5" opacity=".55"/><circle cx="9" cy="9" r="1.5" fill="currentColor"/></g></svg>
+          <svg class="fam-corner fam-corner--bl" viewBox="0 0 30 30" fill="none"><g stroke="currentColor" stroke-width="1" fill="none"><path d="M2 12 L2 2 L12 2"/><path d="M5 15 L5 5 L15 5" opacity=".55"/><circle cx="9" cy="9" r="1.5" fill="currentColor"/></g></svg>
+          <svg class="fam-corner fam-corner--br" viewBox="0 0 30 30" fill="none"><g stroke="currentColor" stroke-width="1" fill="none"><path d="M2 12 L2 2 L12 2"/><path d="M5 15 L5 5 L15 5" opacity=".55"/><circle cx="9" cy="9" r="1.5" fill="currentColor"/></g></svg>
           <div class="fam-role">Padrinos de Anillos</div>
           <div class="fam-names">Javier Dueñas<br><span class="amp-gold">&amp;</span><br>Sandra Castañón</div>
         </article>
         <article class="fam-card fam-card--padrino">
+          <svg class="fam-corner fam-corner--tl" viewBox="0 0 30 30" fill="none"><g stroke="currentColor" stroke-width="1" fill="none"><path d="M2 12 L2 2 L12 2"/><path d="M5 15 L5 5 L15 5" opacity=".55"/><circle cx="9" cy="9" r="1.5" fill="currentColor"/></g></svg>
+          <svg class="fam-corner fam-corner--tr" viewBox="0 0 30 30" fill="none"><g stroke="currentColor" stroke-width="1" fill="none"><path d="M2 12 L2 2 L12 2"/><path d="M5 15 L5 5 L15 5" opacity=".55"/><circle cx="9" cy="9" r="1.5" fill="currentColor"/></g></svg>
+          <svg class="fam-corner fam-corner--bl" viewBox="0 0 30 30" fill="none"><g stroke="currentColor" stroke-width="1" fill="none"><path d="M2 12 L2 2 L12 2"/><path d="M5 15 L5 5 L15 5" opacity=".55"/><circle cx="9" cy="9" r="1.5" fill="currentColor"/></g></svg>
+          <svg class="fam-corner fam-corner--br" viewBox="0 0 30 30" fill="none"><g stroke="currentColor" stroke-width="1" fill="none"><path d="M2 12 L2 2 L12 2"/><path d="M5 15 L5 5 L15 5" opacity=".55"/><circle cx="9" cy="9" r="1.5" fill="currentColor"/></g></svg>
           <div class="fam-role">Padrinos de Arras</div>
           <div class="fam-names">Emilio Pérez<br><span class="amp-gold">&amp;</span><br>Zulema Castañón</div>
         </article>
         <article class="fam-card fam-card--padrino">
+          <svg class="fam-corner fam-corner--tl" viewBox="0 0 30 30" fill="none"><g stroke="currentColor" stroke-width="1" fill="none"><path d="M2 12 L2 2 L12 2"/><path d="M5 15 L5 5 L15 5" opacity=".55"/><circle cx="9" cy="9" r="1.5" fill="currentColor"/></g></svg>
+          <svg class="fam-corner fam-corner--tr" viewBox="0 0 30 30" fill="none"><g stroke="currentColor" stroke-width="1" fill="none"><path d="M2 12 L2 2 L12 2"/><path d="M5 15 L5 5 L15 5" opacity=".55"/><circle cx="9" cy="9" r="1.5" fill="currentColor"/></g></svg>
+          <svg class="fam-corner fam-corner--bl" viewBox="0 0 30 30" fill="none"><g stroke="currentColor" stroke-width="1" fill="none"><path d="M2 12 L2 2 L12 2"/><path d="M5 15 L5 5 L15 5" opacity=".55"/><circle cx="9" cy="9" r="1.5" fill="currentColor"/></g></svg>
+          <svg class="fam-corner fam-corner--br" viewBox="0 0 30 30" fill="none"><g stroke="currentColor" stroke-width="1" fill="none"><path d="M2 12 L2 2 L12 2"/><path d="M5 15 L5 5 L15 5" opacity=".55"/><circle cx="9" cy="9" r="1.5" fill="currentColor"/></g></svg>
           <div class="fam-role">Padrinos de Lazo</div>
           <div class="fam-names">José Martínez<br><span class="amp-gold">&amp;</span><br>Norma Hernández</div>
         </article>
@@ -1245,50 +1314,117 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
         <div class="locs-sub">Chihuahua · Chihuahua</div>
       </div>
       <div class="locs-grid">
-        <article class="loc-card" data-tilt>
-          <span class="washi washi--l"></span>
-          <svg class="rosette rosette--tl" viewBox="0 0 44 44" fill="none" aria-hidden="true">
-            <g stroke="var(--gold)" stroke-width=".8" fill="none">
-              <circle cx="22" cy="22" r="6"/>
-              <circle cx="22" cy="22" r="14" opacity=".5"/>
-              <path d="M22 8 L22 16 M22 28 L22 36 M8 22 L16 22 M28 22 L36 22" opacity=".6"/>
-              <path d="M12 12 L17 17 M27 27 L32 32 M27 17 L32 12 M12 32 L17 27" opacity=".4"/>
+        <article class="loc-card">
+          <div class="loc-crest">I</div>
+          <svg class="loc-corner loc-corner--tl" viewBox="0 0 46 46" fill="none" aria-hidden="true">
+            <g stroke="currentColor" stroke-width="1" fill="none">
+              <path d="M2 18 L2 2 L18 2"/>
+              <path d="M6 22 L6 6 L22 6" opacity=".55"/>
+              <path d="M14 6 Q10 6 10 10 Q10 14 14 14 Q18 14 18 10 Q18 6 14 6 Z" fill="currentColor" fill-opacity=".18"/>
+              <circle cx="14" cy="10" r="1.6" fill="currentColor"/>
+              <path d="M22 6 Q26 12 22 18" opacity=".5"/>
+              <path d="M6 22 Q12 26 18 22" opacity=".5"/>
+              <path d="M2 28 Q6 30 10 28" opacity=".35"/>
+              <path d="M28 2 Q30 6 28 10" opacity=".35"/>
             </g>
           </svg>
-          <svg class="rosette rosette--br" viewBox="0 0 44 44" fill="none" aria-hidden="true">
-            <g stroke="var(--gold)" stroke-width=".8" fill="none">
-              <circle cx="22" cy="22" r="6"/>
-              <circle cx="22" cy="22" r="14" opacity=".5"/>
-              <path d="M22 8 L22 16 M22 28 L22 36 M8 22 L16 22 M28 22 L36 22" opacity=".6"/>
+          <svg class="loc-corner loc-corner--tr" viewBox="0 0 46 46" fill="none" aria-hidden="true">
+            <g stroke="currentColor" stroke-width="1" fill="none">
+              <path d="M2 18 L2 2 L18 2"/>
+              <path d="M6 22 L6 6 L22 6" opacity=".55"/>
+              <path d="M14 6 Q10 6 10 10 Q10 14 14 14 Q18 14 18 10 Q18 6 14 6 Z" fill="currentColor" fill-opacity=".18"/>
+              <circle cx="14" cy="10" r="1.6" fill="currentColor"/>
+              <path d="M22 6 Q26 12 22 18" opacity=".5"/>
+              <path d="M6 22 Q12 26 18 22" opacity=".5"/>
+            </g>
+          </svg>
+          <svg class="loc-corner loc-corner--bl" viewBox="0 0 46 46" fill="none" aria-hidden="true">
+            <g stroke="currentColor" stroke-width="1" fill="none">
+              <path d="M2 18 L2 2 L18 2"/>
+              <path d="M6 22 L6 6 L22 6" opacity=".55"/>
+              <path d="M14 6 Q10 6 10 10 Q10 14 14 14 Q18 14 18 10 Q18 6 14 6 Z" fill="currentColor" fill-opacity=".18"/>
+              <circle cx="14" cy="10" r="1.6" fill="currentColor"/>
+            </g>
+          </svg>
+          <svg class="loc-corner loc-corner--br" viewBox="0 0 46 46" fill="none" aria-hidden="true">
+            <g stroke="currentColor" stroke-width="1" fill="none">
+              <path d="M2 18 L2 2 L18 2"/>
+              <path d="M6 22 L6 6 L22 6" opacity=".55"/>
+              <path d="M14 6 Q10 6 10 10 Q10 14 14 14 Q18 14 18 10 Q18 6 14 6 Z" fill="currentColor" fill-opacity=".18"/>
+              <circle cx="14" cy="10" r="1.6" fill="currentColor"/>
             </g>
           </svg>
           <div class="loc-type">Ceremonia religiosa</div>
           <div class="loc-name">Parroquia del<br>Sagrado Corazón de Jesús</div>
-          <div class="loc-time">16:00 hrs</div>
-          <div class="loc-addr">Chihuahua<br>Chihuahua, México</div>
-          <a class="loc-btn" href="https://www.google.com/maps/search/?api=1&query=Parroquia%20Sagrado%20Coraz%C3%B3n%20de%20Jes%C3%BAs%20Chihuahua" target="_blank" rel="noopener">Cómo llegar</a>
+          <div class="loc-divider" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M12 4 L12 20 M4 12 L20 12 M12 14 a3 3 0 0 1 0 -6 a3 3 0 0 1 0 6 Z" stroke="currentColor" stroke-width="1.2" fill="currentColor" fill-opacity=".15"/></svg>
+          </div>
+          <div class="loc-time">16:00<small>HRS</small></div>
+          <div class="loc-addr">Chihuahua, Chih. · México</div>
+          <div class="loc-map">
+            <iframe loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen
+              src="https://maps.google.com/maps?q=Parroquia+Sagrado+Coraz%C3%B3n+de+Jes%C3%BAs+Chihuahua&t=&z=15&ie=UTF8&iwloc=&output=embed"
+              title="Mapa Parroquia Sagrado Corazón de Jesús"></iframe>
+            <div class="loc-map-caption">la ceremonia</div>
+          </div>
+          <a class="loc-btn" href="https://www.google.com/maps/search/?api=1&query=Parroquia%20Sagrado%20Coraz%C3%B3n%20de%20Jes%C3%BAs%20Chihuahua" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 22s7-7.5 7-13a7 7 0 1 0-14 0c0 5.5 7 13 7 13z"/><circle cx="12" cy="9" r="2.5"/></svg>
+            Abrir en Google Maps
+          </a>
         </article>
-        <article class="loc-card" data-tilt>
-          <span class="washi washi--r"></span>
-          <svg class="rosette rosette--tl" viewBox="0 0 44 44" fill="none" aria-hidden="true">
-            <g stroke="var(--gold)" stroke-width=".8" fill="none">
-              <circle cx="22" cy="22" r="6"/>
-              <circle cx="22" cy="22" r="14" opacity=".5"/>
-              <path d="M22 8 L22 16 M22 28 L22 36 M8 22 L16 22 M28 22 L36 22" opacity=".6"/>
+        <article class="loc-card">
+          <div class="loc-crest">II</div>
+          <svg class="loc-corner loc-corner--tl" viewBox="0 0 46 46" fill="none" aria-hidden="true">
+            <g stroke="currentColor" stroke-width="1" fill="none">
+              <path d="M2 18 L2 2 L18 2"/>
+              <path d="M6 22 L6 6 L22 6" opacity=".55"/>
+              <path d="M14 6 Q10 6 10 10 Q10 14 14 14 Q18 14 18 10 Q18 6 14 6 Z" fill="currentColor" fill-opacity=".18"/>
+              <circle cx="14" cy="10" r="1.6" fill="currentColor"/>
+              <path d="M22 6 Q26 12 22 18" opacity=".5"/>
+              <path d="M6 22 Q12 26 18 22" opacity=".5"/>
             </g>
           </svg>
-          <svg class="rosette rosette--br" viewBox="0 0 44 44" fill="none" aria-hidden="true">
-            <g stroke="var(--gold)" stroke-width=".8" fill="none">
-              <circle cx="22" cy="22" r="6"/>
-              <circle cx="22" cy="22" r="14" opacity=".5"/>
-              <path d="M22 8 L22 16 M22 28 L22 36 M8 22 L16 22 M28 22 L36 22" opacity=".6"/>
+          <svg class="loc-corner loc-corner--tr" viewBox="0 0 46 46" fill="none" aria-hidden="true">
+            <g stroke="currentColor" stroke-width="1" fill="none">
+              <path d="M2 18 L2 2 L18 2"/>
+              <path d="M6 22 L6 6 L22 6" opacity=".55"/>
+              <path d="M14 6 Q10 6 10 10 Q10 14 14 14 Q18 14 18 10 Q18 6 14 6 Z" fill="currentColor" fill-opacity=".18"/>
+              <circle cx="14" cy="10" r="1.6" fill="currentColor"/>
+            </g>
+          </svg>
+          <svg class="loc-corner loc-corner--bl" viewBox="0 0 46 46" fill="none" aria-hidden="true">
+            <g stroke="currentColor" stroke-width="1" fill="none">
+              <path d="M2 18 L2 2 L18 2"/>
+              <path d="M6 22 L6 6 L22 6" opacity=".55"/>
+              <path d="M14 6 Q10 6 10 10 Q10 14 14 14 Q18 14 18 10 Q18 6 14 6 Z" fill="currentColor" fill-opacity=".18"/>
+              <circle cx="14" cy="10" r="1.6" fill="currentColor"/>
+            </g>
+          </svg>
+          <svg class="loc-corner loc-corner--br" viewBox="0 0 46 46" fill="none" aria-hidden="true">
+            <g stroke="currentColor" stroke-width="1" fill="none">
+              <path d="M2 18 L2 2 L18 2"/>
+              <path d="M6 22 L6 6 L22 6" opacity=".55"/>
+              <path d="M14 6 Q10 6 10 10 Q10 14 14 14 Q18 14 18 10 Q18 6 14 6 Z" fill="currentColor" fill-opacity=".18"/>
+              <circle cx="14" cy="10" r="1.6" fill="currentColor"/>
             </g>
           </svg>
           <div class="loc-type">Recepción</div>
           <div class="loc-name">Salón<br>Pedregal JR</div>
-          <div class="loc-time">21:00 hrs</div>
-          <div class="loc-addr">Chihuahua<br>Chihuahua, México</div>
-          <a class="loc-btn" href="https://www.google.com/maps/search/?api=1&query=Sal%C3%B3n%20Pedregal%20JR%20Chihuahua" target="_blank" rel="noopener">Cómo llegar</a>
+          <div class="loc-divider" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M4 14 Q12 4 20 14 Q12 16 4 14 Z M12 14 L12 20" stroke="currentColor" stroke-width="1.2" fill="currentColor" fill-opacity=".15"/></svg>
+          </div>
+          <div class="loc-time">21:00<small>HRS</small></div>
+          <div class="loc-addr">Chihuahua, Chih. · México</div>
+          <div class="loc-map">
+            <iframe loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen
+              src="https://maps.google.com/maps?q=Sal%C3%B3n+Pedregal+JR+Chihuahua&t=&z=15&ie=UTF8&iwloc=&output=embed"
+              title="Mapa Salón Pedregal JR"></iframe>
+            <div class="loc-map-caption">la recepción</div>
+          </div>
+          <a class="loc-btn" href="https://www.google.com/maps/search/?api=1&query=Sal%C3%B3n%20Pedregal%20JR%20Chihuahua" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 22s7-7.5 7-13a7 7 0 1 0-14 0c0 5.5 7 13 7 13z"/><circle cx="12" cy="9" r="2.5"/></svg>
+            Abrir en Google Maps
+          </a>
         </article>
       </div>
     </div>
@@ -1315,74 +1451,135 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
   <!-- DIVIDER: surface → paper (hacia itinerario) -->
   <div class="seam" style="--from:var(--surface);--to:var(--paper)" aria-hidden="true"></div>
 
-  <!-- ITINERARIO -->
+  <!-- ITINERARIO — PROGRAMA DE LA VELADA -->
   <section class="section-paper itinerary">
     <span class="mono-wm" aria-hidden="true">J &amp; A</span>
     <div class="container">
-      <div class="eyebrow">Itinerario</div>
+      <div class="eyebrow">Programa de la velada</div>
       <h2>El <em>recorrido</em> de la noche</h2>
       <div class="itinerary-sub">una noche para recordar</div>
-      <div class="itin-wrap" id="itin">
-        <div class="itin-track" aria-hidden="true">
-          <div class="itin-track-glow" id="itin-glow"></div>
-          <div class="itin-track-fill" id="itin-fill"></div>
+      <div class="itin-intro">14 · Agosto · MMXXVI</div>
+
+      <div class="program-card">
+        <svg class="program-corner program-corner--tl" viewBox="0 0 62 62" fill="none" aria-hidden="true">
+          <g stroke="currentColor" stroke-width="1" fill="none">
+            <path d="M2 28 L2 2 L28 2"/>
+            <path d="M8 32 L8 8 L32 8" opacity=".55"/>
+            <path d="M14 8 Q10 8 10 12 Q10 18 16 18 Q22 18 22 12 Q22 8 18 8 Q14 8 14 12" fill="currentColor" fill-opacity=".15"/>
+            <circle cx="16" cy="13" r="2" fill="currentColor"/>
+            <path d="M30 8 Q38 16 30 24" opacity=".55"/>
+            <path d="M8 30 Q16 38 24 30" opacity=".55"/>
+            <path d="M2 38 Q8 42 14 38" opacity=".4"/>
+            <path d="M38 2 Q42 8 38 14" opacity=".4"/>
+            <path d="M48 8 L52 8 L52 12" opacity=".4"/>
+            <path d="M8 48 L8 52 L12 52" opacity=".4"/>
+            <circle cx="42" cy="42" r="1.4" fill="currentColor" opacity=".55"/>
+          </g>
+        </svg>
+        <svg class="program-corner program-corner--tr" viewBox="0 0 62 62" fill="none" aria-hidden="true">
+          <g stroke="currentColor" stroke-width="1" fill="none">
+            <path d="M2 28 L2 2 L28 2"/>
+            <path d="M8 32 L8 8 L32 8" opacity=".55"/>
+            <path d="M14 8 Q10 8 10 12 Q10 18 16 18 Q22 18 22 12 Q22 8 18 8 Q14 8 14 12" fill="currentColor" fill-opacity=".15"/>
+            <circle cx="16" cy="13" r="2" fill="currentColor"/>
+            <path d="M30 8 Q38 16 30 24" opacity=".55"/>
+            <path d="M8 30 Q16 38 24 30" opacity=".55"/>
+            <circle cx="42" cy="42" r="1.4" fill="currentColor" opacity=".55"/>
+          </g>
+        </svg>
+        <svg class="program-corner program-corner--bl" viewBox="0 0 62 62" fill="none" aria-hidden="true">
+          <g stroke="currentColor" stroke-width="1" fill="none">
+            <path d="M2 28 L2 2 L28 2"/>
+            <path d="M8 32 L8 8 L32 8" opacity=".55"/>
+            <path d="M14 8 Q10 8 10 12 Q10 18 16 18 Q22 18 22 12 Q22 8 18 8 Q14 8 14 12" fill="currentColor" fill-opacity=".15"/>
+            <circle cx="16" cy="13" r="2" fill="currentColor"/>
+            <path d="M30 8 Q38 16 30 24" opacity=".55"/>
+            <path d="M8 30 Q16 38 24 30" opacity=".55"/>
+            <circle cx="42" cy="42" r="1.4" fill="currentColor" opacity=".55"/>
+          </g>
+        </svg>
+        <svg class="program-corner program-corner--br" viewBox="0 0 62 62" fill="none" aria-hidden="true">
+          <g stroke="currentColor" stroke-width="1" fill="none">
+            <path d="M2 28 L2 2 L28 2"/>
+            <path d="M8 32 L8 8 L32 8" opacity=".55"/>
+            <path d="M14 8 Q10 8 10 12 Q10 18 16 18 Q22 18 22 12 Q22 8 18 8 Q14 8 14 12" fill="currentColor" fill-opacity=".15"/>
+            <circle cx="16" cy="13" r="2" fill="currentColor"/>
+            <path d="M30 8 Q38 16 30 24" opacity=".55"/>
+            <path d="M8 30 Q16 38 24 30" opacity=".55"/>
+            <circle cx="42" cy="42" r="1.4" fill="currentColor" opacity=".55"/>
+          </g>
+        </svg>
+
+        <div class="program-header">
+          <div class="program-eyebrow">Programa</div>
+          <h3 class="program-title">Una noche para recordar</h3>
         </div>
-        <ul class="itin-events">
-          <li class="itin-event itin-event--right">
-            <div class="itin-card">
-              <div class="itin-time">16:00</div>
-              <div class="itin-name">Ceremonia</div>
-              <div class="itin-desc">Nos unimos en matrimonio en la Parroquia del Sagrado Corazón de Jesús.</div>
+        <div class="program-flourish" aria-hidden="true">
+          <svg viewBox="0 0 34 34" fill="none">
+            <g stroke="currentColor" stroke-width="1" fill="none">
+              <circle cx="17" cy="17" r="6"/>
+              <circle cx="17" cy="17" r="11" opacity=".5"/>
+              <path d="M17 4 L17 10 M17 24 L17 30 M4 17 L10 17 M24 17 L30 17"/>
+              <path d="M17 12 Q14 14 14 17 Q14 20 17 22 Q20 20 20 17 Q20 14 17 12 Z" fill="currentColor" fill-opacity=".25"/>
+            </g>
+          </svg>
+        </div>
+
+        <ol class="program-list">
+          <li class="program-row">
+            <div class="program-time"><span>16:00<small>HRS</small></span></div>
+            <div class="program-detail">
+              <div class="program-roman">— I —</div>
+              <div class="program-name">Ceremonia Religiosa</div>
+              <div class="program-desc">Nos unimos en matrimonio en la Parroquia del Sagrado Corazón de Jesús, ante Dios y nuestros seres queridos.</div>
             </div>
-            <span class="itin-marker" aria-hidden="true"></span>
-            <div class="itin-spacer" aria-hidden="true"></div>
           </li>
-          <li class="itin-event itin-event--left">
-            <div class="itin-card">
-              <div class="itin-time">20:00</div>
-              <div class="itin-name">Cóctel</div>
-              <div class="itin-desc">Bienvenida con bebidas y bocadillos en el Salón Pedregal JR.</div>
+          <li class="program-row">
+            <div class="program-time"><span>20:00<small>HRS</small></span></div>
+            <div class="program-detail">
+              <div class="program-roman">— II —</div>
+              <div class="program-name">Cóctel de Bienvenida</div>
+              <div class="program-desc">Bocadillos de autor y un brindis temprano para recibirte en el Salón Pedregal JR.</div>
             </div>
-            <span class="itin-marker" aria-hidden="true"></span>
-            <div class="itin-spacer" aria-hidden="true"></div>
           </li>
-          <li class="itin-event itin-event--right">
-            <div class="itin-card">
-              <div class="itin-time">21:00</div>
-              <div class="itin-name">Recepción</div>
-              <div class="itin-desc">Ingreso al salón principal y comienzo de la velada.</div>
+          <li class="program-row">
+            <div class="program-time"><span>21:00<small>HRS</small></span></div>
+            <div class="program-detail">
+              <div class="program-roman">— III —</div>
+              <div class="program-name">Recepción</div>
+              <div class="program-desc">Ingreso al salón principal — comienza la celebración entre luces, flores y música.</div>
             </div>
-            <span class="itin-marker" aria-hidden="true"></span>
-            <div class="itin-spacer" aria-hidden="true"></div>
           </li>
-          <li class="itin-event itin-event--left">
-            <div class="itin-card">
-              <div class="itin-time">22:00</div>
-              <div class="itin-name">Cena</div>
-              <div class="itin-desc">Menú servido en mesa para acompañarnos en esta noche tan especial.</div>
+          <li class="program-row">
+            <div class="program-time"><span>22:00<small>HRS</small></span></div>
+            <div class="program-detail">
+              <div class="program-roman">— IV —</div>
+              <div class="program-name">Cena</div>
+              <div class="program-desc">Menú servido en mesa, palabras de los padrinos y un brindis por los novios.</div>
             </div>
-            <span class="itin-marker" aria-hidden="true"></span>
-            <div class="itin-spacer" aria-hidden="true"></div>
           </li>
-          <li class="itin-event itin-event--right">
-            <div class="itin-card">
-              <div class="itin-time">23:00</div>
-              <div class="itin-name">Primer baile</div>
-              <div class="itin-desc">El primer vals de Jesús &amp; Alejandra; abrimos la pista para todos.</div>
+          <li class="program-row">
+            <div class="program-time"><span>23:00<small>HRS</small></span></div>
+            <div class="program-detail">
+              <div class="program-roman">— V —</div>
+              <div class="program-name">Primer Baile</div>
+              <div class="program-desc">El primer vals de Jesús &amp; Alejandra; después abrimos la pista para todos los invitados.</div>
             </div>
-            <span class="itin-marker" aria-hidden="true"></span>
-            <div class="itin-spacer" aria-hidden="true"></div>
           </li>
-          <li class="itin-event itin-event--left">
-            <div class="itin-card">
-              <div class="itin-time">02:00</div>
-              <div class="itin-name">Despedida</div>
-              <div class="itin-desc">Una última copa y un brindis antes de cerrar la noche.</div>
+          <li class="program-row">
+            <div class="program-time"><span>02:00<small>HRS</small></span></div>
+            <div class="program-detail">
+              <div class="program-roman">— VI —</div>
+              <div class="program-name">Despedida</div>
+              <div class="program-desc">Una última copa, un recuerdo para llevar a casa y un cierre de noche bajo las estrellas.</div>
             </div>
-            <span class="itin-marker" aria-hidden="true"></span>
-            <div class="itin-spacer" aria-hidden="true"></div>
           </li>
-        </ul>
+        </ol>
+
+        <div class="program-footer">
+          <div class="program-monogram">J<span class="amp">&amp;</span>A</div>
+          <div class="program-tagline">Gracias por acompañarnos</div>
+        </div>
       </div>
     </div>
   </section>
@@ -1807,52 +2004,25 @@ tick();setInterval(tick,1000);
 gsap.fromTo('.cd-block',{opacity:0,y:40,rotateX:-30},{opacity:1,y:0,rotateX:0,duration:1.1,stagger:.12,ease:'power4.out',scrollTrigger:{trigger:'.countdown-grid',start:'top 82%'}});
 gsap.fromTo('.countdown .eyebrow, .countdown h2, .countdown-sub',{opacity:0,y:14},{opacity:1,y:0,duration:.9,stagger:.1,scrollTrigger:{trigger:'.countdown',start:'top 78%'}});
 
-// ------ ITINERARIO — línea viva + resplandor por evento ------
+// ------ ITINERARIO — entrada vintage del programa ------
 (() => {
-  const wrap = document.getElementById('itin');
-  const fill = document.getElementById('itin-fill');
-  const glow = document.getElementById('itin-glow');
-  if(!wrap || !fill) return;
-  const events = Array.from(wrap.querySelectorAll('.itin-event'));
-  const nodes  = events.map(e => e.querySelector('.itin-marker'));
-
-  // entrada de tarjetas (una vez)
-  gsap.fromTo(events, {opacity:0, y:36}, {
-    opacity:1, y:0, duration:.9, stagger:.1, ease:'power3.out',
-    scrollTrigger:{trigger:wrap, start:'top 78%'}
+  const card = document.querySelector('.program-card');
+  if(!card) return;
+  gsap.fromTo(card, {opacity:0, y:40, scale:.97}, {
+    opacity:1, y:0, scale:1, duration:1.1, ease:'power3.out',
+    scrollTrigger:{trigger:card, start:'top 80%'}
   });
-
-  let nodePositions = [];
-  const measure = () => {
-    const wrapRect = wrap.getBoundingClientRect();
-    const h = wrap.offsetHeight;
-    nodePositions = nodes.map(n => {
-      const r = n.getBoundingClientRect();
-      const center = (r.top - wrapRect.top) + r.height/2;
-      return center / h;
-    });
-  };
-  measure();
-  window.addEventListener('resize', () => { measure(); ScrollTrigger.refresh(); });
-
-  ScrollTrigger.create({
-    trigger: wrap,
-    start: 'top 72%',
-    end:   'bottom 55%',
-    scrub: 0.6,
-    onUpdate: self => {
-      const p = self.progress;
-      fill.style.transform = 'scaleY(' + p.toFixed(4) + ')';
-      if(glow) glow.style.transform = 'scaleY(' + p.toFixed(4) + ')';
-      for(let i=0;i<events.length;i++){
-        const threshold = nodePositions[i] || 0;
-        if(p >= threshold - 0.02){
-          if(!events[i].classList.contains('is-active')) events[i].classList.add('is-active');
-        } else {
-          if(events[i].classList.contains('is-active')) events[i].classList.remove('is-active');
-        }
-      }
-    }
+  gsap.fromTo('.program-corner', {opacity:0, scale:.6}, {
+    opacity:.9, scale:1, duration:.9, stagger:.08, ease:'back.out(1.6)',
+    scrollTrigger:{trigger:card, start:'top 78%'}
+  });
+  gsap.fromTo('.program-row', {opacity:0, x:-20}, {
+    opacity:1, x:0, duration:.7, stagger:.12, ease:'power3.out',
+    scrollTrigger:{trigger:card, start:'top 70%'}
+  });
+  gsap.fromTo('.program-time', {scale:.7, opacity:0}, {
+    scale:1, opacity:1, duration:.7, stagger:.12, ease:'back.out(1.4)',
+    scrollTrigger:{trigger:card, start:'top 70%'}
   });
 })();
 
