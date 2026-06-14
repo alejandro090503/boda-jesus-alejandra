@@ -2423,22 +2423,22 @@ gsap.fromTo('.album-link',{opacity:0,y:10},{opacity:1,y:0,duration:.9,scrollTrig
     }
     card.innerHTML = '<div class="rsvp-card-title">'+p+' Pase'+(p>1?'s':'')+'</div>'
       +'<div class="rsvp-card-sub">Invitación</div>'
-      +inputs
       +'<div class="rsvp-toggle">'
       +'<label><input type="radio" name="att-'+p+'" value="si" checked><span>Sí asistiré</span></label>'
       +'<label><input type="radio" name="att-'+p+'" value="no"><span>No asistiré</span></label>'
       +'</div>'
+      +'<div class="rsvp-names">'+inputs+'</div>'
       +'<a class="rsvp-wa-btn" href="#" target="_blank" rel="noopener">'+waIcon+' Confirmar por WhatsApp</a>';
     container.appendChild(card);
 
-    // Toggle styling
+    const namesWrap = card.querySelector('.rsvp-names');
     card.querySelectorAll('.rsvp-toggle input').forEach(r=>{
       r.addEventListener('change',()=>{
         card.querySelectorAll('.rsvp-toggle label span').forEach(s=>s.style.background='');
         const checked = card.querySelector('.rsvp-toggle input:checked');
         if(checked) checked.nextElementSibling.style.background = 'var(--accent-deep)';
+        namesWrap.style.display = checked.value === 'si' ? '' : 'none';
       });
-      // Init
       if(r.checked) r.nextElementSibling.style.background = 'var(--accent-deep)';
     });
 
