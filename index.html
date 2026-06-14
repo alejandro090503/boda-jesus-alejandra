@@ -1843,7 +1843,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
 
   <!-- RSVP -->
   <style>
-  .rsvp-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:28px;max-width:1100px;margin:0 auto}
+  .rsvp-cards{display:flex;justify-content:center;max-width:500px;margin:0 auto}
   .rsvp-card{
     background:var(--paper);padding:36px 28px;
     border:1px solid var(--hair-gold);text-align:center;
@@ -2407,11 +2407,14 @@ gsap.fromTo('.album-link',{opacity:0,y:10},{opacity:1,y:0,duration:.9,scrollTrig
   if(!container) return;
   const params = new URLSearchParams(window.location.search);
   const pasesParam = params.get('pases');
-  const showAll = !pasesParam;
+  const numPases = parseInt(pasesParam);
+  if(!numPases || numPases < 1 || numPases > 5){
+    container.innerHTML = '<p style="font-family:var(--serif);font-style:italic;color:var(--accent-deep);font-size:18px;opacity:.8">Solicita tu invitación personalizada a los novios.</p>';
+    return;
+  }
   const waIcon = '<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 3.5A11.9 11.9 0 0012 0C5.4 0 0 5.4 0 12c0 2.1.6 4.2 1.6 6L0 24l6.2-1.6A12 12 0 0012 24c6.6 0 12-5.4 12-12 0-3.2-1.2-6.2-3.5-8.5zM12 21.8c-1.8 0-3.6-.5-5.2-1.4l-.4-.2-3.7 1 1-3.6-.2-.4A9.7 9.7 0 012.2 12c0-5.4 4.4-9.8 9.8-9.8 2.6 0 5.1 1 6.9 2.9 1.8 1.8 2.9 4.3 2.9 6.9 0 5.4-4.4 9.8-9.8 9.8zm5.4-7.3c-.3-.2-1.8-.9-2-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-1.7-.9-2.9-1.5-4-3.5-.3-.5.3-.5.9-1.6.1-.2 0-.4 0-.5-.1-.2-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1.1 1-1.1 2.5s1.1 2.9 1.3 3.1c.2.3 2.2 3.3 5.3 4.7 2 .8 2.8.9 3.8.8.6-.1 1.8-.7 2-1.5.3-.7.3-1.4.2-1.5-.1-.2-.3-.2-.6-.4z"/></svg>';
-
-  for(let p=1;p<=5;p++){
-    if(!showAll && parseInt(pasesParam)!==p) continue;
+  const p = numPases;
+  {
     const card = document.createElement('article');
     card.className = 'rsvp-card';
     let inputs = '';
