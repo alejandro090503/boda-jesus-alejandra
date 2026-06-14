@@ -5,7 +5,20 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Jesús & Alejandra · 14 Agosto 2026 · Chihuahua</title>
 <meta name="description" content="Jesús & Alejandra · Nuestra boda · Viernes 14 de agosto de 2026 · Chihuahua, Chih.">
-<link rel="preload" as="image" href="portada.jpg">
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://boda-jesus-alejandra.vercel.app/">
+<meta property="og:title" content="Jesús & Alejandra · 14 Agosto 2026">
+<meta property="og:description" content="Con alegría los invitamos a celebrar nuestra boda · Viernes 14 de agosto de 2026 · Chihuahua, Chih.">
+<meta property="og:image" content="https://boda-jesus-alejandra.vercel.app/envelope.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Jesús & Alejandra · 14 Agosto 2026">
+<meta name="twitter:description" content="Con alegría los invitamos a celebrar nuestra boda · Viernes 14 de agosto de 2026 · Chihuahua, Chih.">
+<meta name="twitter:image" content="https://boda-jesus-alejandra.vercel.app/envelope.png">
+<link rel="preload" as="video" href="hero-video.mp4">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Pinyon+Script&family=Italiana&family=Inter+Tight:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -85,9 +98,9 @@ h1 em,h2 em,h3 em{font-style:italic;font-weight:500;color:var(--accent)}
 
 .drop-cap::first-letter{
   font-family:var(--display);font-style:italic;
-  font-size:4.2em;line-height:.85;
-  float:left;padding:8px 14px 0 0;
+  font-size:3.6em;line-height:.75;
   color:var(--gold);font-weight:500;
+  vertical-align:-.18em;
 }
 
 /* ============ LOADER ============ */
@@ -322,10 +335,9 @@ h1 em,h2 em,h3 em{font-style:italic;font-weight:500;color:var(--accent)}
   content:"";position:absolute;inset:0;z-index:0;
   background:
     linear-gradient(to bottom,
-      rgba(30,47,78,.55) 0%,
-      rgba(30,47,78,.32) 50%,
-      rgba(30,47,78,.55) 100%),
-    url('img1.png') center/cover no-repeat;
+      rgba(90,47,56,.45) 0%,
+      rgba(90,47,56,.18) 50%,
+      rgba(90,47,56,.45) 100%);
   mask-image:linear-gradient(to bottom,
     transparent 0%,
     rgba(0,0,0,.15) 15%,
@@ -394,8 +406,29 @@ h1 em,h2 em,h3 em{font-style:italic;font-weight:500;color:var(--accent)}
   font-family:var(--serif);font-size:clamp(18px,2vw,21px);font-weight:400;
   line-height:1.85;color:var(--ink);margin-bottom:40px;
 }
-.story-body p{margin-bottom:28px}
-.story-body p:first-child{text-align:left}
+.story-body p{margin-bottom:16px}
+.story-sep{
+  display:flex;align-items:center;justify-content:center;
+  gap:10px;margin:8px auto 16px;
+}
+.story-sep::before,.story-sep::after{
+  content:"";width:36px;height:1px;
+  background:linear-gradient(to right,transparent,rgba(201,164,86,.45));
+}
+.story-sep::after{transform:scaleX(-1)}
+.story-sep-star{
+  font-size:11px;color:var(--gold);opacity:.85;
+  display:inline-block;
+  animation:sepTwinkle 2.8s ease-in-out infinite;
+  cursor:default;
+  transition:transform .2s ease,opacity .2s ease;
+}
+.story-sep-star:hover{transform:scale(1.7) rotate(20deg);opacity:1}
+@keyframes sepTwinkle{
+  0%,100%{opacity:.6;transform:scale(1) rotate(0deg)}
+  50%{opacity:1;transform:scale(1.25) rotate(18deg)}
+}
+.story-body p:first-child{text-align:center;text-wrap:pretty}
 .story-initials{
   font-family:var(--script);font-size:96px;
   color:var(--gold);margin-top:56px;line-height:1;
@@ -610,125 +643,123 @@ h1 em,h2 em,h3 em{font-style:italic;font-weight:500;color:var(--accent)}
 .dress{text-align:center}
 .dress h2{font-size:clamp(38px,5.5vw,60px);margin-bottom:20px}
 .dress-sub{font-family:var(--script);color:var(--gold);font-size:34px;margin-bottom:20px;line-height:1}
-.dress-note{font-family:var(--italiana);font-size:14px;letter-spacing:.35em;text-transform:uppercase;color:var(--ink-soft);padding-left:.35em;margin-bottom:64px}
+.dress-cols{
+  display:flex;align-items:stretch;justify-content:center;
+  max-width:600px;margin:0 auto 56px;
+}
+.dress-col{
+  flex:1;display:flex;flex-direction:column;align-items:center;
+  padding:clamp(16px,4vw,36px) clamp(12px,3vw,28px) clamp(20px,4vw,32px);
+  gap:10px;
+}
+.dress-divider{
+  width:1px;flex-shrink:0;align-self:stretch;
+  background:linear-gradient(to bottom,transparent,rgba(201,164,86,.5) 20%,rgba(201,164,86,.5) 80%,transparent);
+}
+.dress-col-icon{
+  width:36px;height:36px;color:var(--gold);opacity:.85;margin-bottom:4px;
+}
+.dress-col-title{
+  font-family:var(--display);font-style:italic;font-weight:400;
+  font-size:clamp(20px,3vw,26px);color:var(--accent-deep);line-height:1;
+}
+.dress-col-rule{
+  width:32px;height:1px;
+  background:linear-gradient(to right,transparent,rgba(201,164,86,.55),transparent);
+  margin:2px 0;
+}
+.dress-col-sub{
+  font-family:var(--italiana);font-size:11.5px;letter-spacing:.38em;
+  text-transform:uppercase;color:var(--ink-soft);padding-left:.38em;
+  line-height:1.5;text-align:center;
+}
+.dress-col-swatches{
+  display:flex;gap:clamp(8px,1.5vw,14px);justify-content:center;
+  flex-wrap:wrap;margin-top:8px;
+}
+.dress-col .swatch-c{
+  width:clamp(48px,7vw,64px);height:clamp(48px,7vw,64px);
+}
 .dress-swatches{display:flex;justify-content:center;gap:clamp(22px,4vw,48px);flex-wrap:wrap}
 .swatch{text-align:center}
 .swatch-c{
   width:clamp(70px,10vw,100px);height:clamp(70px,10vw,100px);
   border-radius:50%;margin:0 auto 18px;
   box-shadow:
-    inset 0 -8px 20px rgba(0,0,0,.15),
-    0 1px 2px rgba(30,47,78,.05),
-    0 10px 26px -10px rgba(30,47,78,.22),
-    0 34px 80px -40px rgba(30,47,78,.35);
-  border:1px solid var(--hair);position:relative;
+    inset 0 -12px 28px rgba(0,0,0,.28),
+    inset 0 2px 6px rgba(255,255,255,.18),
+    0 8px 24px -6px rgba(30,47,78,.32),
+    0 22px 56px -24px rgba(30,47,78,.4);
+  border:1.5px solid rgba(255,255,255,.28);
+  position:relative;overflow:hidden;
+}
+.swatch-c::before{
+  content:"";position:absolute;inset:0;border-radius:50%;
+  background:radial-gradient(circle at 38% 28%,
+    rgba(255,255,255,.55) 0%,
+    rgba(255,255,255,.18) 28%,
+    transparent 58%);
+  pointer-events:none;
 }
 .swatch-c::after{
-  content:"";position:absolute;top:14%;left:22%;width:30%;height:22%;
+  content:"";position:absolute;bottom:-8%;left:10%;width:80%;height:38%;
   border-radius:50%;
-  background:radial-gradient(circle, rgba(255,255,255,.4), transparent 70%);
+  background:radial-gradient(ellipse at center, rgba(0,0,0,.22), transparent 70%);
+  pointer-events:none;
 }
 .swatch-n{font-family:var(--sans);font-size:10px;letter-spacing:.4em;text-transform:uppercase;color:var(--ink-soft);padding-left:.4em;font-weight:500}
 
-/* ============ GALLERY — RUEDA DE LA FORTUNA ============ */
+/* ============ GALLERY — 3D CAROUSEL ============ */
 .gallery{padding:min(14vh,130px) 0 min(18vh,170px)}
 .gallery .container{max-width:none;padding:0}
 .gallery-head{text-align:center;margin-bottom:56px}
 .gallery h2{font-size:clamp(38px,5.5vw,60px);margin-bottom:20px}
 .gallery-sub{font-family:var(--script);color:var(--gold);font-size:32px;line-height:1}
 
-.wheel-stage{
+.wheel-scene{
   position:relative;
   width:100%;
-  height:min(960px,108vw);
-  max-width:1080px;
-  margin:0 auto;
-  padding:clamp(20px,4vw,60px);
-  display:flex;align-items:center;justify-content:center;
+  height:520px;
+  margin:40px auto 0;
+  perspective:1400px;
+  transform-style:preserve-3d;
   overflow:visible;
 }
-.wheel-stage::before{
-  content:"";position:absolute;inset:0;
-  background:radial-gradient(circle at center, rgba(201,164,86,.06) 0%, transparent 55%);
-  pointer-events:none;
-}
-.wheel{
-  position:relative;
-  width:min(760px,90vw);
-  height:min(760px,90vw);
-  transform-style:preserve-3d;
-  will-change:transform;
-}
-.wheel-spoke{
-  position:absolute;inset:0;pointer-events:none;
-  border:1px dashed color-mix(in srgb, var(--gold) 35%, transparent);
-  border-radius:50%;opacity:.4;
-}
-.wheel-spoke--inner{
-  inset:36%;
-  border:1px solid color-mix(in srgb, var(--gold) 55%, transparent);
-  opacity:.55;
-}
-.wheel-hub{
-  position:absolute;top:50%;left:50%;
-  transform:translate(-50%,-50%);
-  width:clamp(110px,14vw,150px);
-  height:clamp(110px,14vw,150px);
-  border-radius:50%;
-  background:
-    radial-gradient(circle, var(--paper) 0%, var(--paper) 55%, transparent 80%),
-    radial-gradient(circle at 35% 30%, rgba(255,255,255,.5), transparent 60%);
-  border:1px solid var(--hair-gold);
-  display:flex;align-items:center;justify-content:center;
-  box-shadow:
-    inset 0 2px 10px rgba(201,164,86,.2),
-    0 6px 20px -6px rgba(30,47,78,.22),
-    0 20px 50px -20px rgba(30,47,78,.3);
-  z-index:3;
-}
-.wheel-hub svg{width:70%;height:auto;color:var(--gold)}
-.wheel-item{
+.wheel-ring{
   position:absolute;
-  top:50%;left:50%;
-  width:clamp(130px,21vw,200px);
-  height:clamp(173px,28vw,267px);
-  margin-left:calc(clamp(130px,21vw,200px) / -2);
-  margin-top:calc(clamp(173px,28vw,267px) / -2);
-  --angle:calc((360deg / 8) * var(--i));
-  transform:rotate(var(--angle)) translateY(calc(-1 * min(280px,34vw)));
-  transform-origin:center center;
-}
-.wheel-item-inner{
   width:100%;height:100%;
-  transform:rotate(calc(-1 * var(--angle)));
-  transform-origin:center center;
-  position:relative;
+  transform-style:preserve-3d;
+  cursor:grab;
+}
+.wheel-ring.dragging{cursor:grabbing}
+.wheel-card{
+  position:absolute;
+  width:200px;height:280px;
+  left:50%;top:50%;
+  margin-left:-100px;margin-top:-140px;
+  border-radius:14px;
   overflow:hidden;
-  border:1px solid var(--hair-gold);
-  background:var(--paper);
-  box-shadow:
-    0 2px 4px rgba(30,47,78,.08),
-    0 8px 20px -6px rgba(30,47,78,.2),
-    0 24px 60px -28px rgba(30,47,78,.34);
-  transition:box-shadow .5s ease;
+  border:1.5px solid color-mix(in srgb,var(--gold) 40%,transparent);
+  box-shadow:0 12px 40px rgba(90,47,56,.20);
+  user-select:none;
+  -webkit-user-select:none;
+  cursor:zoom-in;
 }
-.wheel-item-inner::after{
-  content:"";position:absolute;inset:6px;
-  border:1px solid rgba(248,245,236,.28);
-  pointer-events:none;z-index:2;
-}
-.wheel-item-inner img{
-  width:100%;height:100%;object-fit:cover;display:block;
+.wheel-card img{
+  width:100%;height:100%;
+  object-fit:cover;object-position:center;
+  display:block;
+  pointer-events:none;
   filter:saturate(.95) contrast(1.04);
 }
-.wheel-item:hover .wheel-item-inner{
-  box-shadow:
-    0 2px 4px rgba(30,47,78,.1),
-    0 10px 26px -6px rgba(201,164,86,.4),
-    0 28px 70px -24px rgba(30,47,78,.44);
-}
-@media (max-width:520px){
-  .wheel-item{transform:rotate(var(--angle)) translateY(calc(-1 * min(260px,36vw)))}
+.gal-hint{
+  font-family:var(--serif);
+  font-style:italic;
+  font-size:13px;
+  letter-spacing:3px;
+  color:var(--gold);
+  margin-top:24px;
+  opacity:.7;
 }
 
 /* ============ KIDS POLICY ============ */
@@ -1003,7 +1034,6 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
 }
 .program-time::before{
   content:"";position:absolute;inset:0;border-radius:50%;
-  border:1px solid color-mix(in srgb,var(--gold) 55%,transparent);
   background:radial-gradient(circle at 30% 30%,#FFFBF2 0%,#FBEDD9 80%);
 }
 .program-time::after{
@@ -1063,7 +1093,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
 
 #envelope-screen{
   position:fixed;inset:0;z-index:9998;
-  background:#fff;
+  background:#2A1518;
   display:flex;align-items:center;justify-content:center;
   cursor:pointer;overflow:hidden;
 }
@@ -1071,35 +1101,124 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
   position:absolute;inset:0;
   width:100%;height:100%;
   object-fit:cover;object-position:center;
-  transform:scale(1.18);
+  transform:scale(1.06);
 }
 #env-image{opacity:0;z-index:1}
 #env-video{opacity:0;z-index:2;pointer-events:none}
-#env-hint{
-  position:absolute;bottom:min(9vh,80px);left:50%;transform:translateX(-50%);
-  font-family:var(--sans);font-size:14px;font-weight:500;
-  letter-spacing:.5em;text-transform:uppercase;
-  color:#F8F5EC;padding:14px 28px 14px 28.5px;z-index:3;
-  background:rgba(30,47,78,.88);
-  border:1px solid rgba(232,213,160,.55);
-  border-radius:999px;
-  box-shadow:0 8px 28px rgba(30,47,78,.35),0 0 0 6px rgba(255,255,255,.08);
-  backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
-  animation:envHintPulse 1.8s ease-in-out infinite;
-  user-select:none;pointer-events:none;
-  white-space:nowrap;
+#env-vignette{
+  position:absolute;inset:0;z-index:3;
+  background:linear-gradient(
+    to bottom,
+    rgba(42,21,24,.18) 0%,
+    rgba(42,21,24,.08) 30%,
+    rgba(42,21,24,.58) 62%,
+    rgba(42,21,24,.93) 100%
+  );
 }
-@keyframes envHintPulse{
-  0%,100%{opacity:.92;transform:translateX(-50%) scale(1);box-shadow:0 8px 28px rgba(30,47,78,.35),0 0 0 6px rgba(255,255,255,.08)}
-  50%{opacity:1;transform:translateX(-50%) scale(1.05);box-shadow:0 10px 36px rgba(30,47,78,.48),0 0 0 10px rgba(255,255,255,.14)}
+#env-hint{
+  position:absolute;inset:0;z-index:4;
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:flex-end;
+  padding-bottom:clamp(30px,7vh,68px);
+  text-align:center;
+  user-select:none;pointer-events:none;
+}
+.env-orn{display:flex;align-items:center;gap:10px;margin-bottom:18px}
+.env-orn-bar{width:52px;height:1px;background:rgba(201,164,86,.5)}
+.env-orn-diamond{
+  width:6px;height:6px;
+  background:#C9A456;opacity:.85;
+  transform:rotate(45deg);
+  flex-shrink:0;
+}
+.env-eyebrow{
+  font-family:var(--sans);font-size:10.5px;
+  letter-spacing:.38em;text-transform:uppercase;
+  color:rgba(232,213,160,.68);margin-bottom:14px;
+}
+.env-names{
+  font-family:var(--serif);
+  font-size:clamp(40px,11vw,76px);
+  color:#FBF1EC;font-weight:400;
+  line-height:1.02;margin-bottom:2px;
+}
+.env-amp{
+  font-family:var(--serif);
+  font-size:clamp(28px,7.5vw,56px);
+  color:#C9A456;display:block;
+  line-height:1;margin:3px 0;
+}
+.env-date{
+  font-family:var(--sans);font-size:11.5px;
+  letter-spacing:.32em;text-transform:uppercase;
+  color:rgba(232,213,160,.78);margin-top:16px;margin-bottom:3px;
+}
+.env-place{
+  font-family:var(--sans);font-size:10px;
+  letter-spacing:.28em;text-transform:uppercase;
+  color:rgba(201,164,86,.55);margin-bottom:34px;
+}
+.env-cta{display:flex;flex-direction:column;align-items:center;gap:13px}
+.env-pulse{
+  position:relative;
+  width:54px;height:54px;
+  display:flex;align-items:center;justify-content:center;
+}
+.env-ring{
+  position:absolute;top:50%;left:50%;
+  border-radius:50%;
+  border:1px solid rgba(201,164,86,.4);
+  transform:translate(-50%,-50%) scale(.7);
+  opacity:0;
+  animation:envRing 2.6s ease-out infinite;
+}
+.env-ring-1{width:54px;height:54px;animation-delay:0s}
+.env-ring-2{width:82px;height:82px;animation-delay:.75s}
+.env-ring-3{width:112px;height:112px;animation-delay:1.5s}
+@keyframes envRing{
+  0%{opacity:.8;transform:translate(-50%,-50%) scale(.7)}
+  100%{opacity:0;transform:translate(-50%,-50%) scale(1.4)}
+}
+.env-circle{
+  width:54px;height:54px;
+  border:1px solid rgba(201,164,86,.65);
+  border-radius:50%;
+  background:rgba(42,21,24,.5);
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  display:flex;align-items:center;justify-content:center;
+  color:#C9A456;
+  position:relative;z-index:1;
+}
+.env-cta-text{
+  font-family:var(--sans);font-size:10px;
+  letter-spacing:.46em;text-transform:uppercase;
+  color:rgba(232,213,160,.68);
+  padding-left:.46em;
 }
 #env-flash{
   position:fixed;inset:0;z-index:9999;
   background:#fff;opacity:0;pointer-events:none;
 }
+#music-btn{
+  position:fixed;bottom:clamp(20px,4vw,32px);right:clamp(20px,4vw,32px);
+  z-index:9000;
+  width:44px;height:44px;border-radius:50%;
+  border:1px solid rgba(201,164,86,.55);
+  background:rgba(42,21,24,.55);
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  color:#C9A456;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  transition:transform .2s ease,background .2s ease,border-color .2s ease;
+}
+#music-btn:hover{transform:scale(1.1);background:rgba(42,21,24,.75);border-color:rgba(201,164,86,.85)}
+#music-btn.muted{color:rgba(201,164,86,.45);border-color:rgba(201,164,86,.25)}
+@keyframes musicPulse{
+  0%,100%{box-shadow:0 0 0 0 rgba(201,164,86,.35)}
+  50%{box-shadow:0 0 0 7px rgba(201,164,86,0)}
+}
+#music-btn:not(.muted){animation:musicPulse 2.6s ease-in-out infinite}
 
-/* ============ LIGHTBOX — rueda de fotos ============ */
-.wheel-item-inner{cursor:zoom-in}
+/* ============ LIGHTBOX ============ */
 #lightbox{
   position:fixed;inset:0;z-index:9990;
   display:none;align-items:center;justify-content:center;
@@ -1141,9 +1260,39 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
   <video id="env-video" muted playsinline preload="auto">
     <source src="envelope.mp4" type="video/mp4">
   </video>
-  <div id="env-hint">Toca para abrir</div>
+  <div id="env-vignette" aria-hidden="true"></div>
+  <div id="env-hint" aria-hidden="true">
+    <div class="env-cta">
+      <div class="env-pulse">
+        <div class="env-ring env-ring-1"></div>
+        <div class="env-ring env-ring-2"></div>
+        <div class="env-ring env-ring-3"></div>
+        <div class="env-circle">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" width="20" height="20" aria-hidden="true">
+            <rect x="2" y="5" width="20" height="14" rx="2"/>
+            <path d="M2 7l10 7 10-7"/>
+          </svg>
+        </div>
+      </div>
+      <div class="env-cta-text">Toca para abrir</div>
+    </div>
+  </div>
 </div>
 <div id="env-flash" aria-hidden="true"></div>
+
+<!-- MÚSICA -->
+<audio id="bg-music" src="music.mp3" loop preload="auto"></audio>
+<button id="music-btn" aria-label="Silenciar música" hidden>
+  <svg id="music-icon-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" width="18" height="18">
+    <path d="M9 18V5l12-2v13"/>
+    <circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/>
+  </svg>
+  <svg id="music-icon-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" width="18" height="18" style="display:none">
+    <path d="M9 18V5l12-2v13"/>
+    <circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/>
+    <line x1="2" y1="2" x2="22" y2="22" stroke-width="1.6"/>
+  </svg>
+</button>
 
 <!-- LOADER -->
 <div id="loader">
@@ -1167,7 +1316,10 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
 
   <!-- HERO -->
   <section class="hero">
-    <div class="hero-bg-wrap"><video class="hero-bg" autoplay muted loop playsinline preload="auto" poster="portada.jpg"><source src="hero.mp4" type="video/mp4"></video></div>
+    <div class="hero-bg-wrap">
+      <video id="hero-video" class="hero-bg" src="hero-video.mp4" muted playsinline preload="auto" style="display:none"></video>
+      <img id="hero-fallback" class="hero-bg" src="g05.jpg" alt="">
+    </div>
     <div class="hero-bg-overlay"></div>
     <div class="hero-frame"></div>
     <div class="hero-frame-corners"></div>
@@ -1196,30 +1348,23 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
     <div class="hero-scroll">Descubre</div>
   </section>
 
-  <!-- DIVIDER: bg → date-hero -->
-  <div class="seam" style="--from:transparent;--to:#5A2F38" aria-hidden="true"></div>
+  <!-- DIVIDER: bg → surface -->
+  <div class="seam" style="--from:transparent;--to:var(--surface)" aria-hidden="true"></div>
 
-  <!-- FECHA HERO -->
-  <section class="date-hero">
+  <!-- COUNTDOWN -->
+  <section class="section-surface countdown">
     <div class="container">
-      <div class="date-eyebrow" data-anim="date-eb">Reserva la fecha</div>
-      <h2 class="date-h">Nuestro <em>gran</em> día</h2>
-      <div class="date-numbers">
-        <div class="date-block">
-          <div class="date-num" data-count-to="14">0</div>
-          <div class="date-lbl">Agosto</div>
-        </div>
-        <div class="date-block">
-          <div class="date-num" data-count-to="2026">0</div>
-          <div class="date-lbl">Viernes</div>
-        </div>
+      <div class="eyebrow">Cuenta regresiva</div>
+      <h2>Contamos <em>los</em> días</h2>
+      <div class="countdown-sub">hasta el gran momento</div>
+      <div class="countdown-grid" id="cd">
+        <div class="cd-block"><div class="cd-num" id="cd-d">000</div><div class="cd-lbl">Días</div></div>
+        <div class="cd-block"><div class="cd-num" id="cd-h">00</div><div class="cd-lbl">Horas</div></div>
+        <div class="cd-block"><div class="cd-num" id="cd-m">00</div><div class="cd-lbl">Minutos</div></div>
+        <div class="cd-block"><div class="cd-num" id="cd-s">00</div><div class="cd-lbl">Segundos</div></div>
       </div>
-      <div class="date-roman">XIV · VIII · 2026</div>
     </div>
   </section>
-
-  <!-- DIVIDER: date-hero dark → surface -->
-  <div class="seam" style="--from:#5A2F38;--to:var(--surface)" aria-hidden="true"></div>
 
   <!-- HISTORIA -->
   <section class="section-surface">
@@ -1235,9 +1380,12 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
         <div class="hair-word"><span>nuestra historia</span></div>
         <h2>Seis años <em>de</em> amor</h2>
         <div class="story-body">
-          <p class="drop-cap" data-reveal="line">Después de 6 años de amor, aprendizajes, risas y momentos inolvidables, hemos decidido dar el paso más importante de nuestras vidas.</p>
+          <p class="drop-cap" data-reveal="line">Después de 6 años de amor, aprendizajes, risas y momentos inolvidables, hemos decidido dar el paso más importante de nuestras&nbsp;vidas.</p>
+          <div class="story-sep" aria-hidden="true"><span class="story-sep-star">✦</span></div>
           <p data-reveal="line">Nuestro camino juntos nos ha enseñado que el verdadero amor se construye día a día, con paciencia, confianza y la certeza de elegirnos siempre.</p>
+          <div class="story-sep" aria-hidden="true"><span class="story-sep-star">✦</span></div>
           <p data-reveal="line">Hoy, con el corazón lleno de ilusión, queremos invitarte a ser parte de este momento tan especial, donde uniremos nuestras vidas para siempre ante Dios y nuestros seres queridos.</p>
+          <div class="story-sep" aria-hidden="true"><span class="story-sep-star">✦</span></div>
           <p data-reveal="line"><em>Tu presencia será el mejor regalo en el día en que diremos «sí» para toda la vida.</em></p>
         </div>
         <div class="story-initials">J &amp; A</div>
@@ -1264,7 +1412,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
           <svg class="fam-corner fam-corner--bl" viewBox="0 0 30 30" fill="none"><g stroke="currentColor" stroke-width="1" fill="none"><path d="M2 12 L2 2 L12 2"/><path d="M5 15 L5 5 L15 5" opacity=".55"/><circle cx="9" cy="9" r="1.5" fill="currentColor"/></g></svg>
           <svg class="fam-corner fam-corner--br" viewBox="0 0 30 30" fill="none"><g stroke="currentColor" stroke-width="1" fill="none"><path d="M2 12 L2 2 L12 2"/><path d="M5 15 L5 5 L15 5" opacity=".55"/><circle cx="9" cy="9" r="1.5" fill="currentColor"/></g></svg>
           <div class="fam-role">Padres del Novio</div>
-          <div class="fam-names">Jesús Vázquez Quintana <span class="cross">✝</span><br><span class="amp-gold">&amp;</span><br>María Leticia Castañón Martínez</div>
+          <div class="fam-names">Jesús Vázquez Quintana <svg class="cross-finado" viewBox="0 0 12 16" width="10" height="13" fill="currentColor" aria-label="Finado" style="color:var(--gold);opacity:.7;vertical-align:super;margin-left:4px"><path d="M5 0h2v5h5v2H7v9H5V7H0V5h5z"/></svg><br><span class="amp-gold">&amp;</span><br>María Leticia Castañón Martínez</div>
         </article>
         <article class="fam-card">
           <svg class="fam-corner fam-corner--tl" viewBox="0 0 30 30" fill="none"><g stroke="currentColor" stroke-width="1" fill="none"><path d="M2 12 L2 2 L12 2"/><path d="M5 15 L5 5 L15 5" opacity=".55"/><circle cx="9" cy="9" r="1.5" fill="currentColor"/></g></svg>
@@ -1272,7 +1420,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
           <svg class="fam-corner fam-corner--bl" viewBox="0 0 30 30" fill="none"><g stroke="currentColor" stroke-width="1" fill="none"><path d="M2 12 L2 2 L12 2"/><path d="M5 15 L5 5 L15 5" opacity=".55"/><circle cx="9" cy="9" r="1.5" fill="currentColor"/></g></svg>
           <svg class="fam-corner fam-corner--br" viewBox="0 0 30 30" fill="none"><g stroke="currentColor" stroke-width="1" fill="none"><path d="M2 12 L2 2 L12 2"/><path d="M5 15 L5 5 L15 5" opacity=".55"/><circle cx="9" cy="9" r="1.5" fill="currentColor"/></g></svg>
           <div class="fam-role">Padres de la Novia</div>
-          <div class="fam-names">Víctor Manuel Najera Rede <span class="cross">✝</span><br><span class="amp-gold">&amp;</span><br>Josefa Ramos</div>
+          <div class="fam-names">Víctor Manuel Najera Rede <svg class="cross-finado" viewBox="0 0 12 16" width="10" height="13" fill="currentColor" aria-label="Finado" style="color:var(--gold);opacity:.7;vertical-align:super;margin-left:4px"><path d="M5 0h2v5h5v2H7v9H5V7H0V5h5z"/></svg><br><span class="amp-gold">&amp;</span><br>Josefa Ramos</div>
         </article>
         <article class="fam-card fam-card--padrino">
           <svg class="fam-corner fam-corner--tl" viewBox="0 0 30 30" fill="none"><g stroke="currentColor" stroke-width="1" fill="none"><path d="M2 12 L2 2 L12 2"/><path d="M5 15 L5 5 L15 5" opacity=".55"/><circle cx="9" cy="9" r="1.5" fill="currentColor"/></g></svg>
@@ -1296,7 +1444,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
           <svg class="fam-corner fam-corner--bl" viewBox="0 0 30 30" fill="none"><g stroke="currentColor" stroke-width="1" fill="none"><path d="M2 12 L2 2 L12 2"/><path d="M5 15 L5 5 L15 5" opacity=".55"/><circle cx="9" cy="9" r="1.5" fill="currentColor"/></g></svg>
           <svg class="fam-corner fam-corner--br" viewBox="0 0 30 30" fill="none"><g stroke="currentColor" stroke-width="1" fill="none"><path d="M2 12 L2 2 L12 2"/><path d="M5 15 L5 5 L15 5" opacity=".55"/><circle cx="9" cy="9" r="1.5" fill="currentColor"/></g></svg>
           <div class="fam-role">Padrinos de Lazo</div>
-          <div class="fam-names">José Martínez<br><span class="amp-gold">&amp;</span><br>Norma Hernández</div>
+          <div class="fam-names">Martiniano García<br><span class="amp-gold">&amp;</span><br>Norma Hernández</div>
         </article>
       </div>
     </div>
@@ -1430,26 +1578,8 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
     </div>
   </section>
 
-  <!-- DIVIDER: paper → surface -->
-  <div class="seam" style="--from:var(--paper);--to:var(--surface)" aria-hidden="true"></div>
-
-  <!-- COUNTDOWN -->
-  <section class="section-surface countdown">
-    <div class="container">
-      <div class="eyebrow">Cuenta regresiva</div>
-      <h2>Contamos <em>los</em> días</h2>
-      <div class="countdown-sub">hasta el gran momento</div>
-      <div class="countdown-grid" id="cd">
-        <div class="cd-block"><div class="cd-num" id="cd-d">000</div><div class="cd-lbl">Días</div></div>
-        <div class="cd-block"><div class="cd-num" id="cd-h">00</div><div class="cd-lbl">Horas</div></div>
-        <div class="cd-block"><div class="cd-num" id="cd-m">00</div><div class="cd-lbl">Minutos</div></div>
-        <div class="cd-block"><div class="cd-num" id="cd-s">00</div><div class="cd-lbl">Segundos</div></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- DIVIDER: surface → paper (hacia itinerario) -->
-  <div class="seam" style="--from:var(--surface);--to:var(--paper)" aria-hidden="true"></div>
+  <!-- DIVIDER: paper → paper (hacia itinerario) -->
+  <div class="seam" style="--from:var(--paper);--to:var(--paper)" aria-hidden="true"></div>
 
   <!-- ITINERARIO — PROGRAMA DE LA VELADA -->
   <section class="section-paper itinerary">
@@ -1535,33 +1665,17 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
             </div>
           </li>
           <li class="program-row">
-            <div class="program-time"><span>20:00<small>HRS</small></span></div>
-            <div class="program-detail">
-              <div class="program-roman">— II —</div>
-              <div class="program-name">Cóctel de Bienvenida</div>
-              <div class="program-desc">Bocadillos de autor y un brindis temprano para recibirte en el Salón Pedregal JR.</div>
-            </div>
-          </li>
-          <li class="program-row">
             <div class="program-time"><span>21:00<small>HRS</small></span></div>
             <div class="program-detail">
-              <div class="program-roman">— III —</div>
+              <div class="program-roman">— II —</div>
               <div class="program-name">Recepción</div>
               <div class="program-desc">Ingreso al salón principal — comienza la celebración entre luces, flores y música.</div>
             </div>
           </li>
           <li class="program-row">
-            <div class="program-time"><span>22:00<small>HRS</small></span></div>
+            <div class="program-time"><span>21:30<small>HRS</small></span></div>
             <div class="program-detail">
-              <div class="program-roman">— IV —</div>
-              <div class="program-name">Cena</div>
-              <div class="program-desc">Menú servido en mesa, palabras de los padrinos y un brindis por los novios.</div>
-            </div>
-          </li>
-          <li class="program-row">
-            <div class="program-time"><span>23:00<small>HRS</small></span></div>
-            <div class="program-detail">
-              <div class="program-roman">— V —</div>
+              <div class="program-roman">— III —</div>
               <div class="program-name">Primer Baile</div>
               <div class="program-desc">El primer vals de Jesús &amp; Alejandra; después abrimos la pista para todos los invitados.</div>
             </div>
@@ -1569,7 +1683,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
           <li class="program-row">
             <div class="program-time"><span>02:00<small>HRS</small></span></div>
             <div class="program-detail">
-              <div class="program-roman">— VI —</div>
+              <div class="program-roman">— IV —</div>
               <div class="program-name">Despedida</div>
               <div class="program-desc">Una última copa, un recuerdo para llevar a casa y un cierre de noche bajo las estrellas.</div>
             </div>
@@ -1591,15 +1705,35 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
   <section class="section-bg dress">
     <div class="container">
       <div class="eyebrow">Código de vestimenta</div>
-      <h2>Formal · <em>Vintage</em></h2>
-      <div class="dress-sub">paleta dorado &amp; rosa palo</div>
-      <div class="dress-note">Caballeros · traje formal &nbsp;·&nbsp; Damas · vestido largo de noche<br><span style="font-size:13px;opacity:.75">Sugerimos tonos azul, gris o verde para los invitados</span></div>
-      <div class="dress-swatches">
-        <div class="swatch"><div class="swatch-c" style="background:linear-gradient(135deg,#7B96B2,#3F587A)"></div><div class="swatch-n">Azul</div></div>
-        <div class="swatch"><div class="swatch-c" style="background:linear-gradient(135deg,#9BA0A8,#6E727A)"></div><div class="swatch-n">Gris</div></div>
-        <div class="swatch"><div class="swatch-c" style="background:linear-gradient(135deg,#7A8C72,#4D5B47)"></div><div class="swatch-n">Verde</div></div>
-        <div class="swatch"><div class="swatch-c" style="background:linear-gradient(135deg,#EAC9CD,#D4A0A8)"></div><div class="swatch-n">Rosa palo</div></div>
-        <div class="swatch"><div class="swatch-c" style="background:linear-gradient(135deg,#E8D5A0,#8F7335)"></div><div class="swatch-n">Dorado</div></div>
+      <h2>Formal · <em>Elegante</em></h2>
+      <div class="dress-sub">elegancia en cada detalle</div>
+      <div class="dress-cols">
+        <!-- Caballeros -->
+        <div class="dress-col">
+          <svg class="dress-col-icon" viewBox="0 0 36 36" fill="none" aria-hidden="true">
+            <path d="M12 4 L18 10 L24 4 L28 8 L22 14 L22 32 L14 32 L14 14 L8 8 Z" stroke="currentColor" stroke-width="1.2" fill="none" stroke-linejoin="round"/>
+            <path d="M18 10 L18 32" stroke="currentColor" stroke-width=".8" opacity=".5"/>
+            <path d="M14 18 L22 18" stroke="currentColor" stroke-width=".7" opacity=".4"/>
+          </svg>
+          <div class="dress-col-title">Caballeros</div>
+          <div class="dress-col-rule"></div>
+          <div class="dress-col-sub">Traje formal</div>
+          <div class="dress-col-sub" style="margin-top:8px;font-family:var(--serif);font-style:italic;font-size:13px;letter-spacing:.15em;color:var(--ink-soft)">Evitar: Azul y Gris</div>
+        </div>
+        <!-- Divisor -->
+        <div class="dress-divider" aria-hidden="true"></div>
+        <!-- Damas -->
+        <div class="dress-col">
+          <svg class="dress-col-icon" viewBox="0 0 36 36" fill="none" aria-hidden="true">
+            <path d="M18 4 C18 4 14 8 12 12 L8 32 L28 32 L24 12 C22 8 18 4 18 4 Z" stroke="currentColor" stroke-width="1.2" fill="none" stroke-linejoin="round"/>
+            <path d="M12 12 Q18 16 24 12" stroke="currentColor" stroke-width=".9" opacity=".6"/>
+            <path d="M18 4 L18 32" stroke="currentColor" stroke-width=".6" opacity=".35"/>
+          </svg>
+          <div class="dress-col-title">Damas</div>
+          <div class="dress-col-rule"></div>
+          <div class="dress-col-sub">Vestido largo de noche</div>
+          <div class="dress-col-sub" style="margin-top:8px;font-family:var(--serif);font-style:italic;font-size:13px;letter-spacing:.15em;color:var(--ink-soft)">Evitar: Blanco, Crema, Rojo,<br>Beige, Dorado y Rosa palo</div>
+        </div>
       </div>
     </div>
   </section>
@@ -1614,31 +1748,24 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
       <h2>Del camino <em>que</em> nos trajo aquí</h2>
       <div class="gallery-sub">rueda de recuerdos</div>
     </div>
-    <div class="wheel-stage">
-      <div class="wheel" id="wheel">
-        <span class="wheel-spoke" aria-hidden="true"></span>
-        <span class="wheel-spoke wheel-spoke--inner" aria-hidden="true"></span>
-        <div class="wheel-item" style="--i:0"><div class="wheel-item-inner"><img src="img1.png" alt="" loading="lazy"></div></div>
-        <div class="wheel-item" style="--i:1"><div class="wheel-item-inner"><img src="img2.png" alt="" loading="lazy"></div></div>
-        <div class="wheel-item" style="--i:2"><div class="wheel-item-inner"><img src="img3.png" alt="" loading="lazy"></div></div>
-        <div class="wheel-item" style="--i:3"><div class="wheel-item-inner"><img src="img4.png" alt="" loading="lazy"></div></div>
-        <div class="wheel-item" style="--i:4"><div class="wheel-item-inner"><img src="img5.png" alt="" loading="lazy"></div></div>
-        <div class="wheel-item" style="--i:5"><div class="wheel-item-inner"><img src="portada.jpg" alt="" loading="lazy"></div></div>
-        <div class="wheel-item" style="--i:6"><div class="wheel-item-inner"><img src="foto1.jpg" alt="" loading="lazy"></div></div>
-        <div class="wheel-item" style="--i:7"><div class="wheel-item-inner"><img src="foto2.jpg" alt="" loading="lazy"></div></div>
-      </div>
-      <div class="wheel-hub" aria-hidden="true">
-        <svg viewBox="0 0 60 60" fill="none">
-          <g stroke="currentColor" stroke-width=".8" fill="none">
-            <circle cx="30" cy="30" r="18" opacity=".4"/>
-            <circle cx="30" cy="30" r="10"/>
-            <circle cx="30" cy="30" r="3" fill="currentColor"/>
-            <path d="M30 14 L30 20 M30 40 L30 46 M14 30 L20 30 M40 30 L46 30" opacity=".55"/>
-            <path d="M18 18 L22 22 M38 38 L42 42 M42 18 L38 22 M22 38 L18 42" opacity=".4"/>
-          </g>
-        </svg>
+    <div class="wheel-scene" id="wheel-scene">
+      <div class="wheel-ring" id="wheel-ring">
+        <div class="wheel-card"><img src="g01.jpg" alt="Jesús &amp; Alejandra" loading="lazy"></div>
+        <div class="wheel-card"><img src="g02.jpg" alt="Jesús &amp; Alejandra" loading="lazy"></div>
+        <div class="wheel-card"><img src="g03.jpg" alt="Jesús &amp; Alejandra" loading="lazy"></div>
+        <div class="wheel-card"><img src="g04.jpg" alt="Jesús &amp; Alejandra" loading="lazy"></div>
+        <div class="wheel-card"><img src="g05.jpg" alt="Jesús &amp; Alejandra" loading="lazy"></div>
+        <div class="wheel-card"><img src="g06.jpg" alt="Jesús &amp; Alejandra" loading="lazy"></div>
+        <div class="wheel-card"><img src="g07.jpg" alt="Jesús &amp; Alejandra" loading="lazy"></div>
+        <div class="wheel-card"><img src="g08.jpg" alt="Jesús &amp; Alejandra" loading="lazy"></div>
+        <div class="wheel-card"><img src="g09.jpg" alt="Jesús &amp; Alejandra" loading="lazy"></div>
+        <div class="wheel-card"><img src="g10.jpg" alt="Jesús &amp; Alejandra" loading="lazy"></div>
+        <div class="wheel-card"><img src="g11.jpg" alt="Jesús &amp; Alejandra" loading="lazy"></div>
+        <div class="wheel-card"><img src="g12.jpg" alt="Jesús &amp; Alejandra" loading="lazy"></div>
+        <div class="wheel-card"><img src="g13.jpg" alt="Jesús &amp; Alejandra" loading="lazy"></div>
       </div>
     </div>
+    <p class="gal-hint" style="text-align:center">&#8592; arrastra para girar &#8594;</p>
   </section>
 
   <!-- DIVIDER: surface → paper -->
@@ -1668,49 +1795,27 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
   <section class="section-surface gifts">
     <div class="container">
       <div class="gifts-head">
-        <div class="eyebrow">Tu presencia es nuestro regalo</div>
-        <h2>Mesa <em>de</em> regalos</h2>
-        <p class="gifts-sub">Si deseas obsequiarnos algo, hemos preparado estas opciones</p>
+        <div class="eyebrow">Mesa de regalos</div>
+        <h2>Para nosotros lo más <em>importante</em> es tu presencia</h2>
+        <p class="gifts-sub">Nuestro mayor regalo es que estés con nosotros, pero si deseas hacernos un obsequio te dejamos esta opción</p>
       </div>
-      <div class="gifts-grid">
+      <div class="gifts-grid" style="max-width:480px">
         <article class="gift-card">
           <div class="gift-icon">
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round">
-              <path d="M3 6h2l2 11h11l2-8H7"/>
-              <circle cx="9" cy="20" r="1.5"/>
-              <circle cx="17" cy="20" r="1.5"/>
+              <rect x="2" y="4" width="20" height="16" rx="2"/>
+              <path d="M2 8h20"/>
+              <path d="M12 4v16"/>
+              <path d="M8 4 Q12 8 16 4"/>
             </svg>
           </div>
-          <div class="gift-name">Amazon</div>
-          <div class="gift-desc">Lista de regalos en línea<br>Envío directo a los novios</div>
-          <a class="gift-btn" href="https://www.amazon.com.mx/wedding/registry/jesus-alejandra-2026" target="_blank" rel="noopener">Ver lista</a>
-        </article>
-        <article class="gift-card">
-          <div class="gift-icon">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round">
-              <path d="M5 8h14l-1.5 12h-11L5 8Z"/>
-              <path d="M9 8V6a3 3 0 0 1 6 0v2"/>
-            </svg>
-          </div>
-          <div class="gift-name">Liverpool</div>
-          <div class="gift-desc">Mesa de regalos<br>Jesús &amp; Alejandra 2026</div>
-          <a class="gift-btn" href="https://mesaderegalos.liverpool.com.mx/milistaderegalos/" target="_blank" rel="noopener">Ver mesa</a>
-        </article>
-        <article class="gift-card">
-          <div class="gift-icon">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round">
-              <rect x="3" y="6" width="18" height="13" rx="1.5"/>
-              <path d="M3 10h18"/>
-              <path d="M7 15h4"/>
-            </svg>
-          </div>
-          <div class="gift-name">Cuenta bancaria</div>
+          <div class="gift-name">Lluvia de Sobres</div>
           <div class="gift-desc">
             <span class="bank-line"><b>Banco:</b> BBVA</span>
             <span class="bank-line"><b>Titular:</b> Jesús Vázquez Castañón</span>
-            <span class="bank-line"><b>CLABE:</b> <span class="clabe">0120 0000 0000 0000 00</span></span>
+            <span class="bank-line"><b>CLABE:</b> <span class="clabe">0121 5001 5194 8902 40</span></span>
           </div>
-          <button class="gift-btn copy-clabe" data-clabe="012000000000000000" type="button">Copiar CLABE</button>
+          <button class="gift-btn copy-clabe" data-clabe="012150015194890240" type="button">Copiar CLABE</button>
         </article>
       </div>
     </div>
@@ -1737,26 +1842,63 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
   <div class="seam" style="--from:var(--bg);--to:var(--paper)" aria-hidden="true"></div>
 
   <!-- RSVP -->
+  <style>
+  .rsvp-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:28px;max-width:1100px;margin:0 auto}
+  .rsvp-card{
+    background:var(--paper);padding:36px 28px;
+    border:1px solid var(--hair-gold);text-align:center;
+    box-shadow:0 1px 2px rgba(30,47,78,.05),0 10px 28px -10px rgba(30,47,78,.16),0 38px 90px -40px rgba(30,47,78,.28);
+    position:relative;display:flex;flex-direction:column;gap:16px;
+  }
+  .rsvp-card::before{content:"";position:absolute;inset:8px;border:1px solid var(--hair-gold);opacity:.5;pointer-events:none}
+  .rsvp-card-title{font-family:var(--display);font-style:italic;font-size:clamp(24px,3vw,30px);color:var(--accent-deep)}
+  .rsvp-card-sub{font-family:var(--italiana);font-size:11px;letter-spacing:.4em;text-transform:uppercase;color:var(--gold-deep)}
+  .rsvp-input{
+    width:100%;padding:12px 16px;border:1px solid var(--hair-gold);background:var(--bg);
+    font-family:var(--serif);font-size:15px;color:var(--ink);outline:none;
+    transition:border-color .3s;
+  }
+  .rsvp-input:focus{border-color:var(--gold)}
+  .rsvp-input::placeholder{color:var(--ink-soft);opacity:.5;font-style:italic}
+  .rsvp-toggle{display:flex;gap:0;border:1px solid var(--hair-gold);border-radius:2px;overflow:hidden;margin:4px 0}
+  .rsvp-toggle label{
+    flex:1;padding:12px 8px;cursor:pointer;
+    font-family:var(--sans);font-size:11px;font-weight:500;letter-spacing:.25em;text-transform:uppercase;
+    color:var(--ink-soft);text-align:center;transition:all .3s;
+  }
+  .rsvp-toggle input{display:none}
+  .rsvp-toggle input:checked+span{background:var(--accent-deep);color:var(--paper)}
+  .rsvp-toggle label span{display:block;padding:12px 8px;transition:all .3s}
+  .rsvp-wa-btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:10px;
+    padding:16px 28px;margin-top:auto;
+    border:1px solid var(--accent-deep);background:var(--accent-deep);
+    font-family:var(--sans);font-size:10px;font-weight:500;letter-spacing:.4em;text-transform:uppercase;
+    color:var(--paper);text-decoration:none;cursor:pointer;
+    transition:all .4s;min-height:48px;
+  }
+  .rsvp-wa-btn:hover{background:var(--gold-deep);border-color:var(--gold-deep)}
+  .rsvp-wa-btn svg{width:16px;height:16px;flex-shrink:0}
+  </style>
   <section class="section-paper rsvp">
-    <div class="container rsvp-inner">
-      <svg class="rsvp-ornament" viewBox="0 0 360 80" fill="none" aria-hidden="true">
-        <g stroke="var(--gold)" stroke-width=".9" opacity=".75" fill="none">
-          <path d="M30 40 Q70 18 110 40 Q140 58 170 40"/>
-          <path d="M190 40 Q220 58 250 40 Q290 18 330 40"/>
-          <circle cx="180" cy="40" r="4"/>
-          <circle cx="180" cy="40" r="1.5" fill="var(--gold)" stroke="none"/>
-          <path d="M10 40 L30 40" opacity=".5"/>
-          <path d="M330 40 L350 40" opacity=".5"/>
-        </g>
-      </svg>
-      <div class="eyebrow">Confirma tu asistencia</div>
-      <h2>Tu presencia <em>lo</em> es todo</h2>
-      <p class="rsvp-text">Por favor confírmanos si nos acompañarás antes del <b>20 de julio de 2026</b>. Un mensaje es suficiente — queremos saber que estarás ahí.</p>
-      <a class="rsvp-btn" href="https://wa.me/5216146020292?text=Hola%21%20Confirmo%20mi%20asistencia%20a%20la%20boda%20de%20Jes%C3%BAs%20%26%20Alejandra%20el%2014%20de%20agosto%20de%202026." target="_blank" rel="noopener">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 3.5A11.9 11.9 0 0012 0C5.4 0 0 5.4 0 12c0 2.1.6 4.2 1.6 6L0 24l6.2-1.6A12 12 0 0012 24c6.6 0 12-5.4 12-12 0-3.2-1.2-6.2-3.5-8.5zM12 21.8c-1.8 0-3.6-.5-5.2-1.4l-.4-.2-3.7 1 1-3.6-.2-.4A9.7 9.7 0 012.2 12c0-5.4 4.4-9.8 9.8-9.8 2.6 0 5.1 1 6.9 2.9 1.8 1.8 2.9 4.3 2.9 6.9 0 5.4-4.4 9.8-9.8 9.8zm5.4-7.3c-.3-.2-1.8-.9-2-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-1.7-.9-2.9-1.5-4-3.5-.3-.5.3-.5.9-1.6.1-.2 0-.4 0-.5-.1-.2-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1.1 1-1.1 2.5s1.1 2.9 1.3 3.1c.2.3 2.2 3.3 5.3 4.7 2 .8 2.8.9 3.8.8.6-.1 1.8-.7 2-1.5.3-.7.3-1.4.2-1.5-.1-.2-.3-.2-.6-.4z"/></svg>
-        Confirmar por WhatsApp
-      </a>
-      <div class="rsvp-date">Fecha límite · 20 Julio 2026</div>
+    <div class="container" style="max-width:1200px">
+      <div style="text-align:center;margin-bottom:56px">
+        <svg class="rsvp-ornament" viewBox="0 0 360 80" fill="none" aria-hidden="true" style="display:block;margin:0 auto 40px;width:min(300px,55vw);height:auto">
+          <g stroke="var(--gold)" stroke-width=".9" opacity=".75" fill="none">
+            <path d="M30 40 Q70 18 110 40 Q140 58 170 40"/>
+            <path d="M190 40 Q220 58 250 40 Q290 18 330 40"/>
+            <circle cx="180" cy="40" r="4"/>
+            <circle cx="180" cy="40" r="1.5" fill="var(--gold)" stroke="none"/>
+          </g>
+        </svg>
+        <div class="eyebrow">Confirma tu asistencia</div>
+        <h2 style="font-size:clamp(38px,5.5vw,60px);margin-bottom:28px">Tu presencia <em>lo</em> es todo</h2>
+        <p class="rsvp-text" style="max-width:720px;margin:0 auto 0;font-family:var(--serif);font-style:italic;font-size:clamp(18px,2vw,22px);line-height:1.8;color:var(--ink)">Por favor confírmanos si nos acompañarás antes del <b>20 de julio de 2026</b>.</p>
+      </div>
+      <div class="rsvp-cards" id="rsvp-cards"></div>
+      <div style="text-align:center;margin-top:36px">
+        <div class="rsvp-date" style="font-family:var(--italiana);font-size:12px;letter-spacing:.45em;text-transform:uppercase;color:var(--ink-soft);padding-left:.45em">Fecha límite · 20 Julio 2026</div>
+      </div>
     </div>
   </section>
 
@@ -1851,11 +1993,61 @@ function launchInvitation(){
     .fromTo('.hero-place',{opacity:0,y:10},{opacity:1,y:0,duration:.8},'-=.4')
     .fromTo('.hero-scroll',{opacity:0},{opacity:.7,duration:.8},'-=.3');
 
+  document.body.style.overflow = '';
   startParticles();
   if(window.ScrollTrigger) ScrollTrigger.refresh();
+
+  // Hero video: play after envelope, fade to fallback on end
+  const heroVid = document.getElementById('hero-video');
+  const heroFallback = document.getElementById('hero-fallback');
+  if(heroVid && heroFallback){
+    heroVid.style.display = '';
+    heroFallback.style.opacity = '0';
+    heroVid.style.opacity = '1';
+    heroVid.play().catch(()=>{
+      heroVid.style.display = 'none';
+      heroFallback.style.opacity = '1';
+    });
+    heroVid.addEventListener('ended',()=>{
+      gsap.to(heroVid,{opacity:0,duration:1.2,ease:'power2.inOut'});
+      gsap.to(heroFallback,{opacity:1,duration:1.2,ease:'power2.inOut'});
+    });
+  }
+
+  // Arrancar música con fade-in
+  const music = document.getElementById('bg-music');
+  const musicBtn = document.getElementById('music-btn');
+  if(music && musicBtn){
+    music.currentTime = 0;
+    music.volume = 0;
+    music.play().then(()=>{
+      musicBtn.removeAttribute('hidden');
+      gsap.to(music,{volume:.55,duration:3,ease:'power2.out'});
+    }).catch(()=>{});
+
+    musicBtn.addEventListener('click',()=>{
+      gsap.killTweensOf(music);
+      const playing = !music.paused;
+      if(playing){
+        gsap.to(music,{volume:0,duration:.45,onComplete:()=>music.pause()});
+        musicBtn.classList.add('muted');
+        document.getElementById('music-icon-on').style.display  = 'none';
+        document.getElementById('music-icon-off').style.display = '';
+        musicBtn.setAttribute('aria-label','Reanudar música');
+      } else {
+        music.play().catch(()=>{});
+        gsap.fromTo(music,{volume:0},{volume:.55,duration:.5});
+        musicBtn.classList.remove('muted');
+        document.getElementById('music-icon-on').style.display  = '';
+        document.getElementById('music-icon-off').style.display = 'none';
+        musicBtn.setAttribute('aria-label','Silenciar música');
+      }
+    });
+  }
 }
 
 // ------ ENVELOPE OPENING SEQUENCE ------
+document.body.style.overflow = 'hidden';
 (function(){
   const envScreen = document.getElementById('envelope-screen');
   const envImage  = document.getElementById('env-image');
@@ -1874,6 +2066,13 @@ function launchInvitation(){
   function openEnvelope(){
     if(opened) return;
     opened = true;
+
+    // Desbloquear audio sincrónicamente dentro del gesto del usuario
+    const music = document.getElementById('bg-music');
+    if(music){
+      music.volume = 0;
+      music.play().then(()=>{ music.pause(); music.currentTime = 0; }).catch(()=>{});
+    }
 
     // Hint desaparece
     gsap.to(envHint,{opacity:0,duration:.35,ease:'power2.out'});
@@ -1999,10 +2198,12 @@ tick();setInterval(tick,1000);
 gsap.fromTo('.cd-block',{opacity:0,y:40,rotateX:-30},{opacity:1,y:0,rotateX:0,duration:1.1,stagger:.12,ease:'power4.out',scrollTrigger:{trigger:'.countdown-grid',start:'top 82%'}});
 gsap.fromTo('.countdown .eyebrow, .countdown h2, .countdown-sub',{opacity:0,y:14},{opacity:1,y:0,duration:.9,stagger:.1,scrollTrigger:{trigger:'.countdown',start:'top 78%'}});
 
-// ------ ITINERARIO — entrada vintage del programa ------
+// ------ ITINERARIO — interactivo por fila ------
 (() => {
   const card = document.querySelector('.program-card');
   if(!card) return;
+
+  // Entrada de la tarjeta y esquinas
   gsap.fromTo(card, {opacity:0, y:40, scale:.97}, {
     opacity:1, y:0, scale:1, duration:1.1, ease:'power3.out',
     scrollTrigger:{trigger:card, start:'top 80%'}
@@ -2011,43 +2212,128 @@ gsap.fromTo('.countdown .eyebrow, .countdown h2, .countdown-sub',{opacity:0,y:14
     opacity:.9, scale:1, duration:.9, stagger:.08, ease:'back.out(1.6)',
     scrollTrigger:{trigger:card, start:'top 78%'}
   });
-  gsap.fromTo('.program-row', {opacity:0, x:-20}, {
-    opacity:1, x:0, duration:.7, stagger:.12, ease:'power3.out',
-    scrollTrigger:{trigger:card, start:'top 70%'}
-  });
-  gsap.fromTo('.program-time', {scale:.7, opacity:0}, {
-    scale:1, opacity:1, duration:.7, stagger:.12, ease:'back.out(1.4)',
-    scrollTrigger:{trigger:card, start:'top 70%'}
+
+  // Cada fila se anima individualmente al entrar al viewport
+  const circumference = 2 * Math.PI * 44;
+  document.querySelectorAll('.program-row').forEach((row) => {
+    const timeEl = row.querySelector('.program-time');
+    if(!timeEl) return;
+
+    // Inyectar SVG de anillo en el medallón
+    const svgNS = 'http://www.w3.org/2000/svg';
+    const svg = document.createElementNS(svgNS, 'svg');
+    svg.setAttribute('viewBox','0 0 96 96');
+    svg.setAttribute('fill','none');
+    svg.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;transform:rotate(-90deg);pointer-events:none;';
+
+    const track = document.createElementNS(svgNS, 'circle');
+    track.setAttribute('cx','48'); track.setAttribute('cy','48'); track.setAttribute('r','44');
+    track.setAttribute('stroke','rgba(201,164,86,0.18)'); track.setAttribute('stroke-width','1.5');
+
+    const fill = document.createElementNS(svgNS, 'circle');
+    fill.setAttribute('cx','48'); fill.setAttribute('cy','48'); fill.setAttribute('r','44');
+    fill.setAttribute('stroke','rgba(201,164,86,0.8)'); fill.setAttribute('stroke-width','1.8');
+    fill.setAttribute('stroke-linecap','round');
+    fill.setAttribute('stroke-dasharray', circumference);
+    fill.setAttribute('stroke-dashoffset', circumference);
+
+    svg.appendChild(track);
+    svg.appendChild(fill);
+    timeEl.style.position = 'relative';
+    timeEl.insertBefore(svg, timeEl.firstChild);
+
+    // Timeline por fila
+    const tl = gsap.timeline({
+      scrollTrigger:{ trigger:row, start:'top 85%', once:true }
+    });
+    tl.fromTo(row, {opacity:0, x:-24}, {opacity:1, x:0, duration:.55, ease:'power3.out'})
+      .fromTo(timeEl, {scale:.55, opacity:0, rotate:-200},
+              {scale:1, opacity:1, rotate:0, duration:.7, ease:'back.out(1.5)'}, '-=.25')
+      .to(fill, {strokeDashoffset:0, duration:.85, ease:'power2.out'}, '-=.45')
+      .fromTo(row.querySelector('.program-detail'),
+              {opacity:0, y:12}, {opacity:1, y:0, duration:.5, ease:'power2.out'}, '-=.5');
   });
 })();
 
 // ------ DRESS ------
-gsap.fromTo('.swatch',{opacity:0,scale:.4,y:30},{opacity:1,scale:1,y:0,duration:1.1,stagger:.1,ease:'elastic.out(1,.6)',scrollTrigger:{trigger:'.dress-swatches',start:'top 82%'}});
-gsap.fromTo('.dress .eyebrow, .dress h2, .dress-sub, .dress-note',{opacity:0,y:14},{opacity:1,y:0,duration:.9,stagger:.08,scrollTrigger:{trigger:'.dress',start:'top 78%'}});
+gsap.fromTo('.dress .eyebrow, .dress h2, .dress-sub, .dress-cols',{opacity:0,y:14},{opacity:1,y:0,duration:.9,stagger:.08,scrollTrigger:{trigger:'.dress',start:'top 78%'}});
 
-// ------ WHEEL OF FORTUNE ------
-const wheel = document.getElementById('wheel');
-const wheelItems = wheel ? wheel.querySelectorAll('.wheel-item-inner') : [];
-if(wheel && !prefersReduced){
-  gsap.fromTo('.wheel-item',{opacity:0,scale:.4},{opacity:1,scale:1,duration:1.2,stagger:.08,ease:'back.out(1.3)',scrollTrigger:{trigger:'.wheel-stage',start:'top 78%'}});
-  gsap.fromTo('.wheel-hub',{opacity:0,scale:.3,rotate:-60},{opacity:1,scale:1,rotate:0,duration:1.4,ease:'back.out(1.6)',scrollTrigger:{trigger:'.wheel-stage',start:'top 78%'}});
-  gsap.fromTo('.wheel-spoke',{opacity:0,scale:.8},{opacity:.4,scale:1,duration:1.4,ease:'power3.out',scrollTrigger:{trigger:'.wheel-stage',start:'top 78%'}});
+// ------ 3D CAROUSEL (from nelvi-yessica) ------
+(function initWheel(){
+  var cards  = document.querySelectorAll('.wheel-card');
+  var ring   = document.getElementById('wheel-ring');
+  if (!ring || cards.length === 0) return;
 
-  // Scroll-scrubbed rotation — una vuelta completa mientras la sección atraviesa el viewport
-  const wheelTL = gsap.timeline({
-    scrollTrigger:{
-      trigger:'.wheel-stage',
-      start:'top bottom',
-      end:'bottom top',
-      scrub:1.2
-    }
+  var n       = cards.length;
+  var radius  = 340;
+  var rot     = 0;
+  var vel     = 0;
+  var isDrag  = false;
+  var startX  = 0;
+  var startRot = 0;
+  var lastX   = 0;
+  var rafId   = null;
+
+  cards.forEach(function(card, i){
+    card.style.transform = 'rotateY(' + (360 / n * i) + 'deg) translateZ(' + radius + 'px)';
   });
-  wheelTL.to(wheel,{rotation:360,ease:'none'},0);
-  wheelTL.to(wheelItems,{rotation:-360,ease:'none'},0);
-}
+
+  function setRot(r){
+    rot = r;
+    gsap.set(ring, { rotateY: rot });
+  }
+
+  function inertia(){
+    if (Math.abs(vel) < 0.05){ vel = 0; return; }
+    vel *= 0.94;
+    setRot(rot + vel);
+    rafId = requestAnimationFrame(inertia);
+  }
+
+  ring.addEventListener('mousedown', function(e){
+    cancelAnimationFrame(rafId);
+    isDrag = true; vel = 0;
+    startX = e.clientX; startRot = rot; lastX = e.clientX;
+    ring.classList.add('dragging');
+  });
+  window.addEventListener('mousemove', function(e){
+    if (!isDrag) return;
+    var dx = e.clientX - startX;
+    vel = (e.clientX - lastX) * 0.5;
+    lastX = e.clientX;
+    setRot(startRot + dx * 0.45);
+  });
+  window.addEventListener('mouseup', function(){
+    if (!isDrag) return;
+    isDrag = false;
+    ring.classList.remove('dragging');
+    rafId = requestAnimationFrame(inertia);
+  });
+
+  ring.addEventListener('touchstart', function(e){
+    cancelAnimationFrame(rafId);
+    isDrag = true; vel = 0;
+    startX = e.touches[0].clientX; startRot = rot; lastX = startX;
+  }, { passive: true });
+  window.addEventListener('touchmove', function(e){
+    if (!isDrag) return;
+    var dx = e.touches[0].clientX - startX;
+    vel = (e.touches[0].clientX - lastX) * 0.5;
+    lastX = e.touches[0].clientX;
+    setRot(startRot + dx * 0.45);
+  }, { passive: true });
+  window.addEventListener('touchend', function(){
+    if (!isDrag) return;
+    isDrag = false;
+    rafId = requestAnimationFrame(inertia);
+  });
+
+  // Entrance animation
+  gsap.fromTo(cards,{opacity:0,scale:.4},{opacity:1,scale:1,duration:1.2,stagger:.06,ease:'back.out(1.3)',scrollTrigger:{trigger:'.wheel-scene',start:'top 78%'}});
+})();
 gsap.fromTo('.gallery-head > *',{opacity:0,y:18},{opacity:1,y:0,duration:1,stagger:.1,scrollTrigger:{trigger:'.gallery-head',start:'top 80%'}});
 
-// ------ LIGHTBOX — rueda de fotos ------
+// ------ LIGHTBOX ------
 (function(){
   const lb    = document.getElementById('lightbox');
   const lbImg = document.getElementById('lightbox-img');
@@ -2080,7 +2366,7 @@ gsap.fromTo('.gallery-head > *',{opacity:0,y:18},{opacity:1,y:0,duration:1,stagg
       }});
   }
 
-  document.querySelectorAll('.wheel-item-inner').forEach(el=>{
+  document.querySelectorAll('.wheel-card').forEach(el=>{
     const img = el.querySelector('img');
     if(!img) return;
     el.addEventListener('click', (e)=>{
@@ -2114,22 +2400,64 @@ gsap.fromTo('.album .eyebrow, .album h2, .album-text',{opacity:0,y:18},{opacity:
 gsap.fromTo('#qr-wrap',{opacity:0,y:30,scale:.94},{opacity:1,y:0,scale:1,duration:1.2,ease:'power3.out',scrollTrigger:{trigger:'#qr-wrap',start:'top 82%'}});
 gsap.fromTo('.album-link',{opacity:0,y:10},{opacity:1,y:0,duration:.9,scrollTrigger:{trigger:'.album-link',start:'top 90%'}});
 
-// ------ RSVP magnetic button ------
-const rsvpBtn = document.querySelector('.rsvp-btn');
-if(rsvpBtn && !('ontouchstart' in window)){
-  rsvpBtn.addEventListener('mousemove',e=>{
-    const r = rsvpBtn.getBoundingClientRect();
-    const mx = e.clientX - r.left - r.width/2;
-    const my = e.clientY - r.top - r.height/2;
-    gsap.to(rsvpBtn,{x:mx*.22,y:my*.35,duration:.4,ease:'power2.out'});
-  });
-  rsvpBtn.addEventListener('mouseleave',()=>{
-    gsap.to(rsvpBtn,{x:0,y:0,duration:.6,ease:'elastic.out(1,.5)'});
-  });
-}
+// ------ RSVP CARDS ------
+(function(){
+  const WA = '5210000000000';
+  const container = document.getElementById('rsvp-cards');
+  if(!container) return;
+  const params = new URLSearchParams(window.location.search);
+  const pasesParam = params.get('pases');
+  const showAll = !pasesParam;
+  const waIcon = '<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 3.5A11.9 11.9 0 0012 0C5.4 0 0 5.4 0 12c0 2.1.6 4.2 1.6 6L0 24l6.2-1.6A12 12 0 0012 24c6.6 0 12-5.4 12-12 0-3.2-1.2-6.2-3.5-8.5zM12 21.8c-1.8 0-3.6-.5-5.2-1.4l-.4-.2-3.7 1 1-3.6-.2-.4A9.7 9.7 0 012.2 12c0-5.4 4.4-9.8 9.8-9.8 2.6 0 5.1 1 6.9 2.9 1.8 1.8 2.9 4.3 2.9 6.9 0 5.4-4.4 9.8-9.8 9.8zm5.4-7.3c-.3-.2-1.8-.9-2-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-1.7-.9-2.9-1.5-4-3.5-.3-.5.3-.5.9-1.6.1-.2 0-.4 0-.5-.1-.2-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1.1 1-1.1 2.5s1.1 2.9 1.3 3.1c.2.3 2.2 3.3 5.3 4.7 2 .8 2.8.9 3.8.8.6-.1 1.8-.7 2-1.5.3-.7.3-1.4.2-1.5-.1-.2-.3-.2-.6-.4z"/></svg>';
+
+  for(let p=1;p<=5;p++){
+    if(!showAll && parseInt(pasesParam)!==p) continue;
+    const card = document.createElement('article');
+    card.className = 'rsvp-card';
+    let inputs = '';
+    for(let i=1;i<=p;i++){
+      inputs += '<input class="rsvp-input rsvp-name" type="text" placeholder="Nombre del invitado '+(p>1?i:'')+'" autocomplete="off">';
+    }
+    card.innerHTML = '<div class="rsvp-card-title">'+p+' Pase'+(p>1?'s':'')+'</div>'
+      +'<div class="rsvp-card-sub">Invitación</div>'
+      +inputs
+      +'<div class="rsvp-toggle">'
+      +'<label><input type="radio" name="att-'+p+'" value="si" checked><span>Sí asistiré</span></label>'
+      +'<label><input type="radio" name="att-'+p+'" value="no"><span>No asistiré</span></label>'
+      +'</div>'
+      +'<a class="rsvp-wa-btn" href="#" target="_blank" rel="noopener">'+waIcon+' Confirmar por WhatsApp</a>';
+    container.appendChild(card);
+
+    // Toggle styling
+    card.querySelectorAll('.rsvp-toggle input').forEach(r=>{
+      r.addEventListener('change',()=>{
+        card.querySelectorAll('.rsvp-toggle label span').forEach(s=>s.style.background='');
+        const checked = card.querySelector('.rsvp-toggle input:checked');
+        if(checked) checked.nextElementSibling.style.background = 'var(--accent-deep)';
+      });
+      // Init
+      if(r.checked) r.nextElementSibling.style.background = 'var(--accent-deep)';
+    });
+
+    // WA link
+    const waBtn = card.querySelector('.rsvp-wa-btn');
+    waBtn.addEventListener('click',function(e){
+      e.preventDefault();
+      const attending = card.querySelector('.rsvp-toggle input:checked').value === 'si';
+      let msg;
+      if(attending){
+        const names = Array.from(card.querySelectorAll('.rsvp-name')).map(i=>i.value.trim()||'(sin nombre)');
+        msg = '¡Hola! Confirmo mi asistencia a la boda de Jesús & Alejandra 💒\nPases: '+p+'\nInvitados:\n'+names.map(n=>'- '+n).join('\n')+'\n¡Nos vemos el 14 de agosto! 🥂';
+      } else {
+        msg = 'Hola, lamentablemente no podré asistir a la boda de Jesús & Alejandra.\nLes deseo lo mejor en esta nueva etapa. 💕';
+      }
+      window.open('https://wa.me/'+WA+'?text='+encodeURIComponent(msg),'_blank');
+    });
+  }
+})();
 gsap.fromTo('.rsvp-ornament',{opacity:0,scaleX:0},{opacity:1,scaleX:1,duration:1.2,ease:'power3.out',scrollTrigger:{trigger:'.rsvp-ornament',start:'top 85%'}});
 gsap.fromTo('.rsvp .eyebrow, .rsvp h2, .rsvp-text',{opacity:0,y:16},{opacity:1,y:0,duration:1.1,stagger:.12,ease:'power3.out',scrollTrigger:{trigger:'.rsvp',start:'top 78%'}});
-gsap.fromTo('.rsvp-btn',{opacity:0,y:30,scale:.9},{opacity:1,y:0,scale:1,duration:1.2,ease:'back.out(1.4)',scrollTrigger:{trigger:'.rsvp-btn',start:'top 85%'}});
+gsap.fromTo('.rsvp-card',{opacity:0,y:40,scale:.95},{opacity:1,y:0,scale:1,duration:1.1,stagger:.12,ease:'power4.out',scrollTrigger:{trigger:'#rsvp-cards',start:'top 82%'}});
 gsap.fromTo('.rsvp-date',{opacity:0,letterSpacing:'1em'},{opacity:1,letterSpacing:'.45em',duration:1,scrollTrigger:{trigger:'.rsvp-date',start:'top 90%'}});
 
 // ------ FOOTER ------
@@ -2228,11 +2556,11 @@ function launchLine(){
 
 function startParticles(){
   if(prefersReduced) return;
-  for(let i=0;i<10;i++) setTimeout(launchPollen,i*700+200);
-  for(let i=0;i<8;i++) setTimeout(launchSpark,i*550+300);
-  for(let i=0;i<10;i++) setTimeout(()=>launchStar(false),i*900+500);
-  for(let i=0;i<4;i++) setTimeout(()=>launchStar(true),i*1800+800);
-  for(let i=0;i<4;i++) setTimeout(launchLine,i*1100+600);
+  for(let i=0;i<13;i++) setTimeout(launchPollen,i*560+200);
+  for(let i=0;i<10;i++) setTimeout(launchSpark,i*440+300);
+  for(let i=0;i<13;i++) setTimeout(()=>launchStar(false),i*720+500);
+  for(let i=0;i<5;i++) setTimeout(()=>launchStar(true),i*1440+800);
+  for(let i=0;i<5;i++) setTimeout(launchLine,i*880+600);
 }
 
 // ------ SCROLL LIMIT — tope exacto en footer ------
