@@ -734,9 +734,9 @@ h1 em,h2 em,h3 em{font-style:italic;font-weight:500;color:var(--accent)}
 .wheel-ring.dragging{cursor:grabbing}
 .wheel-card{
   position:absolute;
-  width:200px;height:280px;
+  width:160px;height:224px;
   left:50%;top:50%;
-  margin-left:-100px;margin-top:-140px;
+  margin-left:-80px;margin-top:-112px;
   border-radius:14px;
   overflow:hidden;
   border:1.5px solid color-mix(in srgb,var(--gold) 40%,transparent);
@@ -2265,7 +2265,7 @@ gsap.fromTo('.dress .eyebrow, .dress h2, .dress-sub, .dress-cols',{opacity:0,y:1
   if (!ring || cards.length === 0) return;
 
   var n       = cards.length;
-  var radius  = 340;
+  var radius  = 700;
   var rot     = 0;
   var vel     = 0;
   var isDrag  = false;
