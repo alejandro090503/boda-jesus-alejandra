@@ -571,14 +571,30 @@ h1 em,h2 em,h3 em{font-style:italic;font-weight:500;color:var(--accent)}
 }
 
 /* ============ COUNTDOWN ============ */
-.countdown{text-align:center;padding:min(14vh,120px) 0}
-.countdown h2{font-size:clamp(32px,4.5vw,52px);margin-bottom:20px}
-.countdown-sub{font-family:var(--script);color:var(--gold);font-size:32px;margin-bottom:56px;line-height:1}
+.countdown{
+  text-align:center;padding:min(14vh,120px) 0;
+  position:relative;isolation:isolate;overflow:hidden;
+  background:url('g05.jpg') center/cover no-repeat fixed;
+  color:#F8F5EC;
+}
+.countdown::after{
+  content:"";position:absolute;inset:0;z-index:0;
+  background:linear-gradient(to bottom,
+    rgba(90,47,56,.82) 0%,
+    rgba(90,47,56,.6) 50%,
+    rgba(90,47,56,.82) 100%);
+  pointer-events:none;
+}
+.countdown > .container{position:relative;z-index:2}
+.countdown h2{font-size:clamp(32px,4.5vw,52px);margin-bottom:20px;color:#F8F5EC}
+.countdown .eyebrow{color:var(--gold-soft)}
+.countdown-sub{font-family:var(--script);color:var(--gold-soft);font-size:32px;margin-bottom:56px;line-height:1}
 .countdown-grid{display:flex;justify-content:center;gap:clamp(14px,3vw,36px);flex-wrap:wrap;font-variant-numeric:tabular-nums;perspective:1200px}
 .cd-block{
-  min-width:100px;padding:28px 22px;background:var(--paper);
-  border:1px solid var(--hair-gold);
-  box-shadow:0 1px 2px rgba(30,47,78,.05),0 10px 30px -12px rgba(30,47,78,.18);
+  min-width:100px;padding:28px 22px;background:rgba(255,246,238,.12);
+  border:1px solid rgba(232,213,160,.35);
+  box-shadow:0 10px 40px rgba(0,0,0,.2);
+  backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
   position:relative;overflow:hidden;
 }
 .cd-block::before{
@@ -587,10 +603,10 @@ h1 em,h2 em,h3 em{font-style:italic;font-weight:500;color:var(--accent)}
 }
 .cd-num{
   font-family:var(--display);font-style:italic;font-weight:400;
-  font-size:clamp(46px,7vw,74px);color:var(--accent-deep);line-height:1;
+  font-size:clamp(46px,7vw,74px);color:#F8F5EC;line-height:1;
   display:block;transform-origin:center;
 }
-.cd-lbl{font-family:var(--sans);font-size:10px;letter-spacing:.45em;text-transform:uppercase;color:var(--gold-deep);margin-top:14px;padding-left:.45em;font-weight:500}
+.cd-lbl{font-family:var(--sans);font-size:10px;letter-spacing:.45em;text-transform:uppercase;color:var(--gold-soft);margin-top:14px;padding-left:.45em;font-weight:500}
 
 /* ============ FAMILY ============ */
 .family{position:relative}
@@ -1317,8 +1333,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
   <!-- HERO -->
   <section class="hero">
     <div class="hero-bg-wrap">
-      <video id="hero-video" class="hero-bg" src="hero-video.mp4" muted playsinline preload="auto" style="display:none"></video>
-      <img id="hero-fallback" class="hero-bg" src="g05.jpg" alt="">
+      <video id="hero-video" class="hero-bg" src="hero-video.mp4" muted playsinline loop preload="auto" style="display:none"></video>
     </div>
     <div class="hero-bg-overlay"></div>
     <div class="hero-frame"></div>
@@ -1997,21 +2012,12 @@ function launchInvitation(){
   startParticles();
   if(window.ScrollTrigger) ScrollTrigger.refresh();
 
-  // Hero video: play after envelope, fade to fallback on end
+  // Hero video: play loop after envelope
   const heroVid = document.getElementById('hero-video');
-  const heroFallback = document.getElementById('hero-fallback');
-  if(heroVid && heroFallback){
+  if(heroVid){
     heroVid.style.display = '';
-    heroFallback.style.opacity = '0';
     heroVid.style.opacity = '1';
-    heroVid.play().catch(()=>{
-      heroVid.style.display = 'none';
-      heroFallback.style.opacity = '1';
-    });
-    heroVid.addEventListener('ended',()=>{
-      gsap.to(heroVid,{opacity:0,duration:1.2,ease:'power2.inOut'});
-      gsap.to(heroFallback,{opacity:1,duration:1.2,ease:'power2.inOut'});
-    });
+    heroVid.play().catch(()=>{ heroVid.style.display = 'none'; });
   }
 
   // Arrancar música con fade-in
